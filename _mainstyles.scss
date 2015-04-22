@@ -1,0 +1,464 @@
+$gray: #3e3e3e;
+$orange: #e83b2e;
+$green: #00b771;
+$blue: #015cab;
+$light-blue: #1285ed;
+
+html,body {
+    height:100%;
+}
+
+* {
+	@include transitionSpeed;
+	font-family: 'Oswald', sans-serif;
+	text-decoration:none;
+	color: $gray;
+
+}
+
+h1{
+	@extend %text-universals;
+}
+h2{
+	@extend %text-universals;
+}
+h3{
+	@extend %text-universals;
+}
+h4{
+	@extend %text-universals;
+}
+
+.container{
+	max-width:1280px;
+}
+.text-container{
+	@extend %vertical-align;
+}
+
+a{
+	color:white;
+	&:hover{
+		color:white;
+	}
+}
+
+nav{
+	width:100%;
+	height: 190px;
+	position:relative;
+}
+	.nav-container{
+		@extend %vertical-align;
+		width:50%;
+		margin: 0 auto;
+
+	}
+		.logo{
+			background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/logo.png') no-repeat;
+			background-position:center;
+			background-size:contain;
+			height: 68px;
+			margin:0 auto 20px auto;
+			position:relative;
+			a{
+				@extend %full-link;
+			}
+		}
+
+		.nav-links{
+			@extend %display-flex;
+			@extend %justify-content-space-around;
+			list-style:none;
+			li{
+				position:relative;
+				text-transform:uppercase;
+				font-size: 20px;
+				a{
+					@extend %full-link;
+				}
+				&:hover{
+					color: $blue;
+				}
+			}
+		}
+.banner{
+	width:100%;
+	height: 525px;
+	background: linear-gradient(
+      rgba($gray, 0.7),
+      rgba($gray, 0.7)
+    ), url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/hero.jpg') no-repeat;
+	background-position:center;
+	background-size:cover;
+	background-attachment: fixed;
+	text-align:center;
+	color:white;
+	text-transform:uppercase;
+	position:relative;
+	h1{
+		font-weight: 800;
+	}
+	span{
+		font-weight: 100;
+		font-size: 30px;
+		color:white;
+	}
+	a{
+		border: 3px solid white;
+		border-radius: 6px;
+		display:block;
+		width:180px;
+		height: 50px;
+		margin: 30px 0 0 0;
+		line-height: 50px;
+		font-size: 25px;
+		&:first-child{
+			margin-right: 30px;
+		}
+		&:hover{
+			background: white;
+			color: $gray;
+		}
+	}
+	&.page-banner{
+		height: 300px;
+		background:none;
+		overflow:hidden;
+		.text-container{
+			z-index: 2;
+		}
+	}
+}
+	.text-container{
+		width: 90%;
+  		margin: 0 auto;
+	}
+	.banner-header{
+		font-size: 110px;
+	}
+
+		.page-banner-background{
+			background: linear-gradient(
+	      		rgba($gray, 0.7),
+	    		rgba($gray, 0.7)
+	    	), url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/pipes.jpg') no-repeat; 
+	    	background-size: cover;
+ 			@include blur;
+ 			left:-15px;
+	    	right:-15px;
+	    	top:-15px;
+	    	bottom:-15px;
+	    	position:absolute;
+		}
+
+hr{
+	border:none;
+	height:8px;
+	background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/hr.svg');
+	background-size: 50%;
+	background-repeat: round;
+	margin: 10px 0 0px 0;
+}
+
+.link-container{
+	@extend %display-flex;
+	@extend %justify-content-center;
+}
+
+
+.home-section{
+	height: 350px;
+	position: relative;
+	padding: 20px 0;
+	div{
+		height: 100%;
+	}
+	h2{
+		color: $gray;
+		font-size:45px;
+		font-weight:800;
+		  margin-bottom: 10px;
+	}
+	p{
+		font-size: 20px;
+  		line-height: 27px;
+	}
+	img{
+		position:relative;
+		  width: 55%;
+		  display: block;
+		  margin: 0 auto;
+	}
+	.text-container{
+		@extend %vertical-align;
+		height:auto;
+	}
+}
+	.local-section{
+		.image-column{
+			background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/mn.svg') no-repeat;
+			background-size:contain;
+			background-position:center;
+		}
+	}
+	.services-section{
+		.image-column{
+			background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/services.svg') no-repeat;
+			background-size:contain;
+			background-position:center;
+		}
+	}
+	.contact-section{
+		p{
+			line-height: 25px;
+		}
+	}
+	.hidden-mn{
+		display:none;
+		background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/mn.svg') no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+
+.home-bar{
+	height: 150px;
+	.container{
+		height:100%;
+		padding: 15px 0;
+	}
+	&.testimonial-bar{
+		background: $orange;
+		position:relative;
+	}
+	&.call-bar{
+		background: $green;
+		span{
+			color:white;
+		}
+		.container{
+			height:100%;
+		}
+		h2{
+			@extend %vertical-align;
+			text-align:center;
+			display:block;
+			margin: 0 auto;
+			font-size:50px;
+			a{
+				font-weight: 800;
+			}
+		}
+	}
+}
+	.testimonial-part{
+		height: 100%;
+		position:relative;
+	}
+	.bubbles-part{
+		@extend %vertical-align;
+		height:80%;
+		&.home-bubbles{
+			  height: 90%;
+		}
+		svg{
+			height: 100%;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+	blockquote{
+		@extend %vertical-align;
+		color:white;
+		text-transform:uppercase;
+		font-size: 25px;
+  		line-height: 30px;
+  		font-weight: normal;
+  		margin: 0;
+	}
+	cite{
+		@extend blockquote;
+		font-style:normal;
+		font-weight: 100;
+	}
+
+form{
+	span{
+	  	position: absolute;
+	  	right: 6px;
+	  	top: -5px;
+	  	color: $orange;
+	}
+}
+#form-messages{
+	height:auto;
+}
+.form-messages-contact{
+	margin-bottom: 25px;
+}
+label{
+	float: left;
+	width: 27%;
+	position:relative;
+	text-transform: uppercase;
+	font-size: 22px;
+	font-weight: 400;
+	text-align: right;
+	padding-right: 3%;
+}
+form.contactForm{
+	input, textarea{
+		width:70%;
+		font-size: 20px;
+		&:focus{
+			border-color: $blue;
+		}
+		&[type=submit]:focus{
+			color: $orange;
+			border-color: $orange;
+			&:hover{
+				color:white;
+			}
+		}
+	}
+}
+
+input[type=submit]{
+	border: 3px solid $orange;
+	color: $orange;
+	display: inline;
+	width: auto;
+	float: right;
+	line-height: 100%;
+	font-weight: 400;
+  	font-size: 20px;
+  	height: 50px;
+	&:hover{
+		background: $orange;
+		color: white;
+		border-color: $orange;
+	}
+}
+
+footer{
+	height:200px;
+	background: $gray;
+	text-align:center;
+	color:white;
+	.container{
+		@extend %vertical-align;
+	}
+	ul{
+		@extend %display-flex;
+		@extend %justify-content-space-around;
+		width: 50%;
+		margin: 0 auto;
+		list-style:none;
+		li{
+			color:white;
+			width: 50%;
+			margin-bottom:0;
+			text-transform: uppercase;
+		}
+	}
+	address{
+		color:white;
+		display:block;
+		width:100%;
+	    font-style: normal;
+	    text-transform: uppercase;
+	    font-weight: 100;
+	    margin-top: 15px;
+	}
+}
+
+.error{
+	background: $orange;
+	color: white;
+	border-radius: 3px;
+	text-align:center;
+	padding: 5px;
+  font-size: 17px;
+  	font-weight: normal;
+  	border: 3px solid white;
+  	box-shadow: 0 0 0pt 2pt $orange;
+}
+.success{
+	@extend .error;
+	background: $green;
+	box-shadow: 0 0 0pt 2pt $green;
+}
+
+#mobile-menu-toggle{
+	@include boxShadow;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	background: none;
+	display:none;
+ 	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 50px;
+    height: 50px;
+    z-index: 1;
+	svg{
+		width: 100%;
+		height:100%;
+	}
+}
+.mobile-nav-links{
+	  position: fixed;
+	  top: 0;
+	  height: 100%;
+	  width: 100%;
+	  text-align: center;
+	    z-index: 3;
+	  background: rgba(255, 255, 255, 0.95);
+	  left: 0;
+	  padding: 10px;
+	  -moz-transform: translatey(-250%);
+	  -ms-transform: translatey(-250%);
+	  -o-transform: translatey(-250%);
+	  -webkit-transform: translatey(-250%);
+	  transform: translatey(-250%);
+	  ul{
+	  	list-style-type: none;
+	  	li{
+	  		font-size: 30px;
+  			text-transform: uppercase;
+  			position:relative;
+  			a{
+  				@extend %full-link;
+  			}
+  			&:hover{
+  				background: $blue;
+  				color:white;
+  			}
+	  	}
+	  }
+}
+
+.open-mobile-menu {
+    -moz-transform: translatey(0%) !important;
+    -ms-transform: translatey(0%) !important;
+    -o-transform: translatey(0%) !important;
+    -webkit-transform: translatey(0%) !important;
+    transform: translatey(0%) !important
+}
+
+#close-mobile-menu{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	svg{
+		width:100%;
+		height:100%;
+		&:hover{
+			fill: $blue;
+			cursor:pointer;
+		}
+	}
+}
