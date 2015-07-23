@@ -1,187 +1,77 @@
 <?php
-	// Make theme available for translation
-	// Translations can be filed in the /languages/ directory
-	load_theme_textdomain( 'hbd-theme', TEMPLATEPATH . '/languages' );
-	
-	add_theme_support( 'menus' );
 
-	$locale = get_locale();
-	$locale_file = TEMPLATEPATH . "/languages/$locale.php";
-	if ( is_readable($locale_file) )
-	    require_once($locale_file);
+	/* removes tabs on left admin menu */
+	add_action('admin_menu', 'remove_menus');
+	function remove_menus(){
+		//remove_menu_page( 'edit.php' );   
+		//remove_menu_page( 'edit-comments.php' ); 
+		//remove_menu_page( 'themes.php' ); 
+		//remove_menu_page('plugins.php');
+		//remove_menu_page('tools.php');
+	}
 
-	// Get the page number
-	function get_page_number() {
-	    if ( get_query_var('paged') ) {
-	        print ' | ' . __( 'Page ' , 'hbd-theme') . get_query_var('paged');
-	    }
-	} // end get_page_number
+	// hide the admin bar on all pages
+	add_filter('show_admin_bar', '__return_false');
 
-	// Custom callback to list comments in the hbd-theme style
-	function custom_comments($comment, $args, $depth) {
-	  $GLOBALS['comment'] = $comment;
-	    $GLOBALS['comment_depth'] = $depth;
-	  ?>
-	    <li id="comment-<?php comment_ID() ?>" <?php comment_class() ?>>
-	        <div class="comment-author vcard"><?php commenter_link() ?></div>
-	        <div class="comment-meta"><?php printf(__('Posted %1$s at %2$s <span class="meta-sep">|</span> <a href="%3$s" title="Permalink to this comment">Permalink</a>', 'hbd-theme'),
-	                    get_comment_date(),
-	                    get_comment_time(),
-	                    '#comment-' . get_comment_ID() );
-	                    edit_comment_link(__('Edit', 'hbd-theme'), ' <span class="meta-sep">|</span> <span class="edit-link">', '</span>'); ?></div>
-	  <?php if ($comment->comment_approved == '0') _e("\t\t\t\t\t<span class='unapproved'>Your comment is awaiting moderation.</span>\n", 'hbd-theme') ?>
-	          <div class="comment-content">
-	            <?php comment_text() ?>
-	        </div>
-	        <?php // echo the comment reply link
-	            if($args['type'] == 'all' || get_comment_type() == 'comment') :
-	                comment_reply_link(array_merge($args, array(
-	                    'reply_text' => __('Reply','hbd-theme'),
-	                    'login_text' => __('Log in to reply.','hbd-theme'),
-	                    'depth' => $depth,
-	                    'before' => '<div class="comment-reply-link">',
-	                    'after' => '</div>'
-	                )));
-	            endif;
-	        ?>
-	<?php } // end custom_comments
+	/* removes widgets on dashboard */
+	add_action('admin_init', 'remove_dashboard_meta');
+	function remove_dashboard_meta() {
+        //remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' );
+        //remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+        //remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+        //remove_meta_box( 'dashboard_activity', 'dashboard', 'side' );
+        //remove_meta_box( 'pageparentdiv', 'page', 'normal');
+	}
+
+	add_action( 'wp_enqueue_scripts', 'enqueue_my_scripts' );
+	function enqueue_my_scripts(){
+
+		wp_register_style('custom-style', get_template_directory_uri() . '/styles/style.css', array(), '1');
+
+		// register jQuery with CDN
+		wp_deregister_script( 'jquery' );
+		wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js', array(), '2.1.3', true);
+
+		// register custom JavaScript
+	    wp_register_script( 'custom-script', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1', true);
+
+	    // Enqueue my custom script, which depends on jQuery, which means jQuery is automatically loaded as well. 
+	    wp_enqueue_script( 'custom-script' );
+	    wp_enqueue_style('custom-style');
+	}
+
+	/* custom logo on login screen */
+	function my_login_logo() { ?>
 	
-	// Custom callback to list pings
-	function custom_pings($comment, $args, $depth) {
-	       $GLOBALS['comment'] = $comment;
-	        ?>
-	            <li id="comment-<?php comment_ID() ?>" <?php comment_class() ?>>
-	                <div class="comment-author"><?php printf(__('By %1$s on %2$s at %3$s', 'hbd-theme'),
-	                        get_comment_author_link(),
-	                        get_comment_date(),
-	                        get_comment_time() );
-	                        edit_comment_link(__('Edit', 'hbd-theme'), ' <span class="meta-sep">|</span> <span class="edit-link">', '</span>'); ?></div>
-	    <?php if ($comment->comment_approved == '0') _e('\t\t\t\t\t<span class="unapproved">Your trackback is awaiting moderation.</span>\n', 'hbd-theme') ?>
-	            <div class="comment-content">
-	                <?php comment_text() ?>
-	            </div>
-	<?php } // end custom_pings
-	
-	// Produces an avatar image with the hCard-compliant photo class
-	function commenter_link() {
-	    $commenter = get_comment_author_link();
-	    if ( ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
-	        $commenter = ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
-	    } else {
-	        $commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
-	    }
-	    $avatar_email = get_comment_author_email();
-	    $avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( $avatar_email, 80 ) );
-	    echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
-	} // end commenter_link
-	
-	// For category lists on category archives: Returns other categories except the current one (redundant)
-	function cats_meow($glue) {
-	    $current_cat = single_cat_title( '', false );
-	    $separator = "\n";
-	    $cats = explode( $separator, get_the_category_list($separator) );
-	    foreach ( $cats as $i => $str ) {
-	        if ( strstr( $str, ">$current_cat<" ) ) {
-	            unset($cats[$i]);
-	            break;
+	    <style type="text/css">
+	        body.login div#login h1 a {
+	            background-image: url('<?php echo get_template_directory_uri(); ?>/img/logo.png')!important;
+	            padding-bottom: 3px;
+				width: 100%;
+				background-size: contain;
+				margin-bottom:0;
 	        }
-	    }
-	    if ( empty($cats) )
-	        return false;
-
-	    return trim(join( $glue, $cats ));
-	} // end cats_meow
+			#loginform #wp-submit{
+				background: rgb(63, 63, 63);
+				border-color: black;
+				-webkit-box-shadow: inset 0 1px 0 rgba(203, 203, 203, 0.5),0 1px 0 rgba(0,0,0,.15);
+				box-shadow: inset 0 1px 0 rgba(231, 231, 231, 0.5),0 1px 0 rgba(0,0,0,.15);
+			}
+			 .login input:focus{
+				border-color: rgba(169, 169, 169, 0.6);
+				-webkit-box-shadow: 0 0 2px rgba(205, 205, 205, 0.8);
+				box-shadow: 0 0 2px rgba(226, 226, 226, 0.8);
+			}
+	    </style>
 	
-	// For tag lists on tag archives: Returns other tags except the current one (redundant)
-	function tag_ur_it($glue) {
-	    $current_tag = single_tag_title( '', '',  false );
-	    $separator = "\n";
-	    $tags = explode( $separator, get_the_tag_list( "", "$separator", "" ) );
-	    foreach ( $tags as $i => $str ) {
-	        if ( strstr( $str, ">$current_tag<" ) ) {
-	            unset($tags[$i]);
-	            break;
-	        }
-	    }
-	    if ( empty($tags) )
-	        return false;
+	<?php }
+	add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
-	    return trim(join( $glue, $tags ));
-	} // end tag_ur_it
-	
-	// Register widgetized areas
-	function theme_widgets_init() {
-	    // Area 1
-	    register_sidebar( array (
-	    'name' => 'Primary Widget Area',
-	    'id' => 'primary_widget_area',
-	    'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	    'after_widget' => "</li>",
-	    'before_title' => '<h3 class="widget-title">',
-	    'after_title' => '</h3>',
-	  ) );
 
-	    // Area 2
-	    register_sidebar( array (
-	    'name' => 'Secondary Widget Area',
-	    'id' => 'secondary_widget_area',
-	    'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	    'after_widget' => "</li>",
-	    'before_title' => '<h3 class="widget-title">',
-	    'after_title' => '</h3>',
-	  ) );
-	} // end theme_widgets_init
 
-	add_action( 'init', 'theme_widgets_init' );
-	
-	$preset_widgets = array (
-	    'primary_widget_area'  => array( 'search', 'pages', 'categories', 'archives' ),
-	    'secondary_widget_area'  => array( 'links', 'meta' )
-	);
-	if ( isset( $_GET['activated'] ) ) {
-	    update_option( 'sidebars_widgets', $preset_widgets );
-	}
-	// update_option( 'sidebars_widgets', NULL );
-	
-	// Check for static widgets in widget-ready areas
-	function is_sidebar_active( $index ){
-	  global $wp_registered_sidebars;
 
-	  $widgetcolums = wp_get_sidebars_widgets();
 
-	  if ($widgetcolums[$index]) return true;
 
-	    return false;
-	} // end is_sidebar_active
 
-	// Customize excerpt length
-	function my_excerpt_length($length) {
-		return 55; // Or whatever you want the length to be.
-	}
-	add_filter('excerpt_length', 'my_excerpt_length');
-
-	// gallery custom post type
-	function create_posttype() {
-
-		register_post_type( 'gallery',
-		// CPT Options
-			array(
-				'labels' => array(
-					'name' => __( 'Website Gallery' ),
-					'singular_name' => __( 'Gallery Item' ),
-					'add_new_item'       => __( 'Add Gallery Item', 'your-plugin-textdomain' ),
-					'add_new' => __('Add New Item'),
-					'edit_item' => __( 'Gallery Item Title' ),
-				),
-				'supports' => array('title'),
-				'public' => true,
-				'has_archive' => true,
-				'rewrite' => array('slug' => 'gallery_item'),
-			)
-		);
-	}
-	add_action( 'init', 'create_posttype' );
-
-	add_theme_support( 'post-thumbnails', array( 'post', 'page', 'gallery') );
 
 ?>
