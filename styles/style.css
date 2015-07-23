@@ -1637,6 +1637,10 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
     font-size: 16px; }
 
   .service-image img {
-    max-width: 90%; } }
+    max-width: 90%; }
+
+  .page-container h2 {
+    font-size: 3.0rem;
+    line-height: 1.2; } }
 
 /*# sourceMappingURL=style.css.map */
