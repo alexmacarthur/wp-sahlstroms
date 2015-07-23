@@ -36,6 +36,18 @@
 				<div class="five columns page-content-block page-image-content">
 
 				<?php
+
+				$pageID = get_the_ID();
+
+				if(has_post_thumbnail( $pageID )):
+					?>
+						<div class="service-image">
+							<?php the_post_thumbnail('full'); ?>
+						</div>
+						
+					<?php
+				else: 
+
 					if (is_page('plumbing')){
 					 	get_template_part('img/inline', 'plumber.svg');
 					} elseif (is_page('refrigeration')){
@@ -45,6 +57,10 @@
 					} elseif (is_page('heating')){
 						get_template_part('img/inline', 'heating.svg');
 					}
+
+				endif;
+
+
 				?>						
 
 				</div>

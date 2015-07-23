@@ -116,5 +116,12 @@ li.phone2, li.email, .phone1{
 		}
 	}
 }
-
-
+.service-image{
+	img{
+		display: block;
+ 		margin: 0 auto;
+ 		max-width: 100%;
+  		height: auto;
+  		border: 2px solid $gray;
+	}
+}

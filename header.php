@@ -55,6 +55,30 @@
 			<a href="http://localhost/sahlstroms/contact">Contact Us</a>
 		</div>
 	</div>
+	<div class="home-slider">
+		<?php 
+			// select posts in random order
+			$images = get_posts(array(
+				'post_type' => 'homeimage',
+			      'orderby'=>'rand',
+			      'posts_per_page'   => -1
+				));
+
+			if($images){
+				foreach($images as $image){
+					$theID = $image->ID;
+					?>
+						<div>
+							<img alt="<?php echo get_field('image_title', $theID); ?>" src="<?php echo get_field('home_image', $theID); ?>">
+						</div>	
+
+					<?php 
+				}
+			}
+		?>
+
+	</div>
+	<div class="background"></div>
 </div>
 
 <?php else : ?>

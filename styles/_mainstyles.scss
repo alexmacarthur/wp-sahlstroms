@@ -85,10 +85,6 @@ nav{
 .banner{
 	width:100%;
 	height: 525px;
-	background: linear-gradient(
-      rgba($gray, 0.7),
-      rgba($gray, 0.7)
-    ), url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/hero.jpg') no-repeat;
 	background-position:center;
 	background-size:cover;
 	background-attachment: fixed;
@@ -130,9 +126,26 @@ nav{
 		}
 	}
 }
+	.background{
+		@extend %full-link;
+		background: rgba($gray,.7);
+	}
+.home-slider{
+	@extend %full-link;
+	overflow:hidden;
+	z-index:0;
+	img{
+		@extend %vertical-align;
+		min-width: 100%;
+	}
+	div{
+		height:100%;
+	}
+}
 	.text-container{
 		width: 90%;
   		margin: 0 auto;
+  		z-index:1;
 	}
 	.banner-header{
 		font-size: 110px;

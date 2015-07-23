@@ -5,6 +5,16 @@ $( document ).ready(function(){
     initMobileLinkResize();
 });
 
+$('.home-slider').slick({
+    dots: false,
+    infinite: true,
+    autoplaySpeed: 5000,
+    speed: 2000,
+    fade: true,
+    cssEase: 'linear',
+    autoplay:true
+});
+
 window.onresize = function(){
     initMobileLinkResize();
 }

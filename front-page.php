@@ -8,6 +8,19 @@
 <!-- if on the home page, call the 'home' header -->
 <?php get_header()?>
 
+	<?php 
+		// loads different slider numbers based on if it's the dev site or live site
+		$thisURL = get_site_url();
+		$contain = strpos($thisURL, "localhost");
+
+		if($contain ==! 0){
+			$theID = 4;
+		} else {
+			$theID = 'x';
+		}
+
+	?>
+
 	<main>
 
 		<div class="container">
@@ -21,9 +34,8 @@
 					</div>
 
 					<div class="text-container">
-						<h2>Local &amp; Ready to Help</h2>
-						<p>Located in Tracy, MN, we’ve had the honor of providing heating, cooling, refrigeration, and plumbing services to customers in communities throughout Southwestern 
-						Minnesota.</p>
+						<h2><?php echo get_field('block_1_header', $theID); ?></h2>
+						<p><?php echo get_field('block_1_content', $theID); ?></p>
 					</div>
 				</div>
 
@@ -61,8 +73,8 @@
 
 				<div class="seven columns text-column">
 					<div class="text-container">
-						<h2>Services You Can Count On</h2>
-						<p>With nearly 20 years of history under our belts, tons of experience with both residential and commercial clients, and warranties &amp; guarantees available for select services, be confident. You’ll be in good hands.</p>
+						<h2><?php echo get_field('block_2_header', $theID); ?></h2>
+						<p><?php echo get_field('block_2_content', $theID); ?></p>
 					</div>
 				</div>
 
@@ -82,8 +94,8 @@
 
 				<div class="five columns text-column">
 					<div class="text-container">
-						<h2>We'd Love to Hear From You.</h2>
-						<p>Great service is just a phone call, email, or online form away. Get started right here, right now, or head to our contact page for more ways to get in touch.</p>
+						<h2><?php echo get_field('block_1_header', $theID); ?></h2>
+						<p><?php echo get_field('block_1_content', $theID); ?></p>
 						<!-- form messages -->
 						<div id="form-messages">
 						</div>
