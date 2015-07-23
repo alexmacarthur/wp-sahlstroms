@@ -21,8 +21,8 @@
 	}
 	form.contactForm{
 		span{
-			  right: auto;
-  margin-left: 5px;
+			right: auto;
+  			margin-left: 5px;
 		}
 		label{
 			width: 100%;
@@ -52,6 +52,9 @@
 }
 
 @media screen and (max-width: 768px){
+	.service-image img{
+		max-width:80%;
+	}
 	footer{
 		ul{
 			width: 75%;
@@ -60,6 +63,7 @@
 	.page-content{
 		.page-content-block{
 			width:100%;
+			margin:0;
 		}
 	}
 	.page-container{
@@ -235,6 +239,34 @@
 
 @media screen and (max-width: 450px){
 	.banner.page-banner h1{
+		font-size: 35px;
+	}
+}
+
+@media screen and (max-width: 375px){
+	.home-section{
+		h2{
+			font-size: 30px;
+		}
+		p{
+			font-size: 17px;
+			line-height: 23px;
+		}
+	}
+	blockquote{
+		font-size: 17px!important;
+		line-height: 100%!important;
+	}
+	.home-bar.call-bar a{
 		font-size: 40px;
+	}
+	.banner{
+		a{
+			margin: 5px 0px 0px;
+			font-size: 16px;
+		}
+	}
+	.service-image img{
+		max-width:90%;
 	}
 }

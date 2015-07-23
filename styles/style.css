@@ -1471,11 +1471,15 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
       width: 100%;
       margin: 0; } }
 @media screen and (max-width: 768px) {
+  .service-image img {
+    max-width: 80%; }
+
   footer ul {
     width: 75%; }
 
   .page-content .page-content-block {
-    width: 100%; }
+    width: 100%;
+    margin: 0; }
 
   .page-container {
     text-align: center; }
@@ -1613,6 +1617,26 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
       height: auto; } }
 @media screen and (max-width: 450px) {
   .banner.page-banner h1 {
-    font-size: 40px; } }
+    font-size: 35px; } }
+@media screen and (max-width: 375px) {
+  .home-section h2 {
+    font-size: 30px; }
+  .home-section p {
+    font-size: 17px;
+    line-height: 23px; }
+
+  blockquote, cite {
+    font-size: 17px !important;
+    line-height: 100% !important; }
+
+  .home-bar.call-bar a {
+    font-size: 40px; }
+
+  .banner a {
+    margin: 5px 0px 0px;
+    font-size: 16px; }
+
+  .service-image img {
+    max-width: 90%; } }
 
 /*# sourceMappingURL=style.css.map */
