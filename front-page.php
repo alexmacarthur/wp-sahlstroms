@@ -16,7 +16,7 @@
 		if($contain ==! 0){
 			$theID = 4;
 		} else {
-			$theID = 'x';
+			$theID = 7;
 		}
 
 	?>
