@@ -3,7 +3,7 @@
 	/* removes tabs on left admin menu */
 	add_action('admin_menu', 'remove_menus');
 	function remove_menus(){
-		//remove_menu_page( 'edit.php' );   
+		remove_menu_page( 'edit.php' );   
 		remove_menu_page( 'edit-comments.php' ); 
 		//remove_menu_page( 'themes.php' ); 
 		//remove_menu_page('plugins.php');
