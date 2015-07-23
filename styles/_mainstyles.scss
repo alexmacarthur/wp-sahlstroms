@@ -55,7 +55,7 @@ nav{
 
 	}
 		.logo{
-			background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/logo.png') no-repeat;
+			background: url('../img/logo.png') no-repeat;
 			background-position:center;
 			background-size:contain;
 			height: 68px;
@@ -155,7 +155,7 @@ nav{
 			background: linear-gradient(
 	      		rgba($gray, 0.7),
 	    		rgba($gray, 0.7)
-	    	), url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/pipes.jpg') no-repeat; 
+	    	), url('../img/pipes.jpg') no-repeat; 
 	    	background-size: cover;
  			@include blur;
  			left:-15px;
@@ -168,7 +168,7 @@ nav{
 hr{
 	border:none;
 	height:8px;
-	background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/hr.svg');
+	background: url('../img/hr.svg');
 	background-size: 50%;
 	background-repeat: round;
 	margin: 10px 0 0px 0;
@@ -210,14 +210,14 @@ hr{
 }
 	.local-section{
 		.image-column{
-			background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/mn.svg') no-repeat;
+			background: url('../img/mn.svg') no-repeat;
 			background-size:contain;
 			background-position:center;
 		}
 	}
 	.services-section{
 		.image-column{
-			background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/services.svg') no-repeat;
+			background: url('../img/services.svg') no-repeat;
 			background-size:contain;
 			background-position:center;
 		}
@@ -229,7 +229,7 @@ hr{
 	}
 	.hidden-mn{
 		display:none;
-		background: url('http://localhost/sahlstroms/wp-content/themes/sahlstroms/img/mn.svg') no-repeat;
+		background: url('../img/mn.svg') no-repeat;
 		background-size:contain;
 		background-position:center;
 	}

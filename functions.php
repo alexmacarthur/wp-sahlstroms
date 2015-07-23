@@ -10,6 +10,10 @@
 		//remove_menu_page('tools.php');
 	}
 
+	if ( function_exists( 'add_image_size' ) ) { 
+		add_image_size( 'home-images', 1300, 99999, false);
+	}
+
 	// hide the admin bar on all pages
 	add_filter('show_admin_bar', '__return_false');
 
@@ -85,7 +89,7 @@
     register_post_type( 'homeimage',
 	    array(
 	        'labels' => array(
-	          'name' => __( 'Home Image' ),
+	          'name' => __( 'Home Images' ),
 	          'singular_name' => __( 'Home Images' ),
 	          'edit_item' => __('Add a Home Image'), 
 	          'add_new_item' => __('Add a New Home Image')

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<title><?php bloginfo('title')?></title>
 	
 	<?php wp_head()?>
@@ -52,7 +53,7 @@
 		<span>Serving our community since 1996.</span>
 		<div class="link-container">
 			<a href="tel:507-629-3734">507-629-3734</a>
-			<a href="http://localhost/sahlstroms/contact">Contact Us</a>
+			<a href="<?php echo get_site_url(); ?>/contact">Contact Us</a>
 		</div>
 	</div>
 	<div class="home-slider">
