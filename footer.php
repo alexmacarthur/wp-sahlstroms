@@ -12,10 +12,6 @@
 		</footer>
 				
 		<?php wp_footer(); ?>
-
-		<script>
-		  // Google Analytics Script.
-		</script>
-
+		
 	</body>
 </html>
