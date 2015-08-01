@@ -32,15 +32,16 @@
 	<div class="nav-container">
 
 		<div class="logo">
-			<a href="<?php echo home_url(); ?>"></a>
+			<?php get_template_part('img/inline','logo.svg'); ?>
+			
 		</div>
 
-		<ul class="nav-links">
-			<li>Heating<a href="<?php echo get_site_url(); ?>/heating"></a></li>
-			<li>Cooling<a href="<?php echo get_site_url(); ?>/cooling"></a></li>
-			<li>Plumbing<a href="<?php echo get_site_url(); ?>/plumbing"></a></li>
-			<li>Refrigeration<a href="<?php echo get_site_url(); ?>/refrigeration"></a></li>
-		</ul>
+<!-- 		<ul class="nav-links">
+			<li>Heating<a href="/heating"></a></li>
+			<li>Cooling<a href="/cooling"></a></li>
+			<li>Plumbing<a href="/plumbing"></a></li>
+			<li>Refrigeration<a href="/refrigeration"></a></li>
+		</ul> -->
 	</div>
 
 </nav>
