@@ -108,7 +108,7 @@
           justify-content: center;
   -ms-flex-pack: center; }
 
-.nav-links li a, .background, .home-slider, .mobile-nav-links ul li a {
+.main-phone .background, .nav-links li a, .background, .home-slider, .mobile-nav-links ul li a {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1018,6 +1018,21 @@ nav {
     .logo svg .svg-link:hover path {
       fill: #e83b2e; }
 
+.main-phone {
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  padding: 2rem; }
+  .main-phone a {
+    color: #3e3e3e;
+    font-size: 5rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 1; }
+  .main-phone .background {
+    background: rgba(255, 255, 255, 0.92);
+    background: none; }
+
 .nav-links {
   list-style: none; }
   .nav-links li {
@@ -1432,6 +1447,17 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
   border: 5px solid #3e3e3e;
   border-radius: 3px; }
 
+.my-button {
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 5px 15px; }
+  .my-button.orange-button {
+    color: #e83b2e;
+    border-color: #e83b2e; }
+    .my-button.orange-button:hover {
+      color: #015cab;
+      border-color: #015cab; }
+
 @media screen and (max-width: 1200px) {
   .nav-container {
     width: 75%; }
@@ -1575,6 +1601,10 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
     padding: 10px 0;
     border-bottom: 1px solid rgba(62, 62, 62, 0.1); } }
 @media screen and (max-width: 550px) {
+  .main-phone {
+    margin-top: 0;
+    padding-top: 0; }
+
   footer .container {
     padding: 0; }
   footer ul {
@@ -1600,6 +1630,9 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
   .banner.page-banner h1 {
     font-size: 35px; } }
 @media screen and (max-width: 375px) {
+  .main-phone a {
+    font-size: 3.5rem; }
+
   .home-section h2 {
     font-size: 30px; }
   .home-section p {

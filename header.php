@@ -36,12 +36,13 @@
 			<div style="clear:both;"></div>
 		</div>
 
-<!-- 		<ul class="nav-links">
-			<li>Heating<a href="/heating"></a></li>
-			<li>Cooling<a href="/cooling"></a></li>
-			<li>Plumbing<a href="/plumbing"></a></li>
-			<li>Refrigeration<a href="/refrigeration"></a></li>
-		</ul> -->
+	</div>
+
+	<div class="main-phone">
+
+		<a class="my-button orange-button" href="<?php echo site_url(); ?>/contact">507-629-3437</a>
+
+	<div class="background"></div>
 	</div>
 
 </nav>

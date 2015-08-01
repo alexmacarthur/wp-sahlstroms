@@ -191,6 +191,10 @@
 }
 
 @media screen and (max-width: 550px){
+	.main-phone{
+		margin-top:0;
+		padding-top: 0;
+	}
 	footer{
 		.container{
 			padding: 0;
@@ -228,6 +232,11 @@
 }
 
 @media screen and (max-width: 375px){
+	.main-phone{
+		a{
+			font-size: 3.5rem;
+		}
+	}
 	.home-section{
 		h2{
 			font-size: 30px;
