@@ -1,0 +1,13 @@
+.my-button{
+	border: 2px solid white;
+	border-radius: 5px;
+	padding: 5px 15px;
+	&.orange-button{
+		color: $orange;
+		border-color: $orange;
+		&:hover{
+			color: $blue;
+			border-color: $blue;
+		}
+	}
+}
