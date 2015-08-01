@@ -1009,9 +1009,9 @@ nav {
   margin: 0 auto; }
 
 .logo {
-  background-position: center;
-  background-size: contain;
-  position: relative; }
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto; }
   .logo svg {
     width: 100%;
     height: 150px; }
@@ -1286,9 +1286,6 @@ footer {
   -webkit-box-shadow: none;
   background: none;
   display: none;
-  position: absolute;
-  top: 10px;
-  left: 10px;
   width: 50px;
   height: 50px;
   z-index: 1; }
@@ -1563,9 +1560,6 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
   .bubbles-part svg {
     display: none; }
 
-  nav {
-    height: 120px; }
-
   .logo {
     width: 100%; }
 
@@ -1573,36 +1567,21 @@ li.phone2 a:hover, li.email a:hover, .phone1 a:hover {
     display: none; }
 
   #mobile-menu-toggle {
-    display: block; } }
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    top: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(62, 62, 62, 0.1); } }
 @media screen and (max-width: 550px) {
   footer .container {
     padding: 0; }
   footer ul {
     width: 100%; }
 
-  .logo {
-    width: 75%;
-    height: 60px;
-    margin: 0 auto 13px auto; }
-
   nav {
-    height: 140px; }
-
-  .nav-container {
-    top: auto;
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-    bottom: 0;
-    position: absolute; }
-
-  #mobile-menu-toggle {
-    left: 0;
-    width: 100%;
-    height: 35px;
-    top: 0;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(62, 62, 62, 0.1); }
+    padding: 0 0 1rem 0; }
 
   .home-section {
     height: 300px; }

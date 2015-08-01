@@ -172,9 +172,6 @@
 	.bubbles-part svg{
 		display:none;
 	}
-	nav{
-		height: 120px;
-	}
 	.logo{
 		width: 100%;
 	}
@@ -183,6 +180,12 @@
 	}
 	#mobile-menu-toggle{
 		display:block;
+		left:0;
+		width:100%;
+		height:35px;
+  		top: 0;
+  		padding: 10px 0;
+  		border-bottom: 1px solid rgba($gray, .1);
 	}
 
 }
@@ -197,29 +200,10 @@
 		}
 	}
 	.logo{
-		width: 75%;
-		height: 60px;
-  		margin: 0 auto 13px auto;
+
 	}
 	nav{
-		height: 140px;
-	}
-	.nav-container{
-		top:auto;
-		-webkit-transform: translateY(0%);
-		-moz-transform: translateY(0%);
-		-ms-transform: translateY(0%);
-		transform: translateY(0%);
-		bottom:0;
-		position: absolute;
-	}
-	#mobile-menu-toggle{
-		left:0;
-		width:100%;
-		height:35px;
-  		top: 0;
-  		padding: 10px 0;
-  		border-bottom: 1px solid rgba($gray, .1);
+		padding: 0 0 1rem 0;
 	}
 	.home-section{
 		height: 300px;

@@ -33,7 +33,7 @@
 
 		<div class="logo">
 			<?php get_template_part('img/inline','logo.svg'); ?>
-			
+			<div style="clear:both;"></div>
 		</div>
 
 <!-- 		<ul class="nav-links">
