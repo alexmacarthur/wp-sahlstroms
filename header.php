@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<title><?php bloginfo('title')?></title>
-	
+
 	<?php wp_head()?>
 
 </head>
@@ -40,10 +40,32 @@
 
 	<div class="main-phone">
 
-		<a class="my-button orange-button" href="<?php echo site_url(); ?>/contact">507-629-3437</a>
+		<a href="<?php echo site_url(); ?>/contact">507-629-3437</a>
 
 	<div class="background"></div>
 	</div>
+
+	<?php
+			$defaults = array(
+				'theme_location'  => 'primary-menu',
+				'menu'            => '',
+				'container'       => 'div',
+				'container_class' => 'nav-links-holder',
+				'container_id'    => '',
+				'menu_class'      => 'menu',
+				'menu_id'         => '',
+				'echo'            => true,
+				'fallback_cb'     => 'wp_page_menu',
+				'before'          => '',
+				'after'           => '',
+				'link_before'     => '',
+				'link_after'      => '',
+				'items_wrap'      => '<ul class="nav-links">%3$s</ul>',
+				'depth'           => 0,
+				'walker'          => ''
+				);
+			wp_nav_menu($defaults);
+		?>
 
 </nav>
 
@@ -52,14 +74,15 @@
 <div class="banner">
 	<div class="text-container">
 		<h1 class="banner-header">Nice to Heat You.</h1>
-		<span>Serving our community since 1996.</span>
+		<span class="banner-span">Serving our community since 1996.</span>
 		<div class="link-container">
-			<a href="tel:507-629-3734">507-629-3734</a>
-			<a href="<?php echo get_site_url(); ?>/contact">Contact Us</a>
+			<a class="banner-link" href="tel:507-629-3734">507-629-3734</a>
+			<a class="banner-link" href="<?php echo get_site_url(); ?>/contact">Contact Us</a>
 		</div>
+		<span class="find-fb"><a href="https://www.facebook.com/Sahlstroms">Find us on Facebook! <?php get_template_part('img/inline','facebook.svg'); ?></a></span>
 	</div>
 	<div class="home-slider">
-		<?php 
+		<?php
 			// select posts in random order
 			$images = get_posts(array(
 				'post_type' => 'homeimage',
@@ -73,9 +96,9 @@
 					?>
 						<div>
 							<img alt="<?php echo get_field('image_title', $theID); ?>" src="<?php echo get_field('home_image', $theID); ?>">
-						</div>	
+						</div>
 
-					<?php 
+					<?php
 				}
 			}
 		?>

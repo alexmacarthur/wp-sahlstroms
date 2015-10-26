@@ -17,7 +17,7 @@ $('.home-slider').slick({
 
 window.onresize = function(){
     initMobileLinkResize();
-}
+};
 
 function initMobileMenu(){
     $('#mobile-menu-toggle').click(function(){
@@ -31,7 +31,7 @@ function initMobileMenu(){
     $('#close-mobile-menu').click(function(){
         $('.mobile-nav-links').removeClass('open-mobile-menu');
     });
-} 
+}
 
 function initMobileLinkResize(){
     var windowHeight = $(window).height();
