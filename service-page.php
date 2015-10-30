@@ -12,10 +12,10 @@
         <div class="container page-container">
 
 	        <?php the_post(); ?>
-	        
+
 			<div class="page-content">
 
-				<div class="seven columns page-content-block page-text-content">
+				<div class="seven columns page-content-block user-managed-content">
 					<?php the_content(); ?>
 					<div class="reference-block">
 						<div class="seven columns">
@@ -44,9 +44,9 @@
 						<div class="service-image">
 							<?php the_post_thumbnail('full'); ?>
 						</div>
-						
+
 					<?php
-				else: 
+				else:
 
 					if (is_page('plumbing')){
 					 	get_template_part('img/inline', 'plumber.svg');
@@ -60,13 +60,12 @@
 
 				endif;
 
-
-				?>						
+				?>
 
 				</div>
-				
+
             </div><!-- .page-content -->
-  	
+
         </div><!-- #container -->
 
         <div class="page-testimonial-bar">
@@ -98,7 +97,7 @@
 			</div>
 
 		</div>
-       
+
     </main>
 
 <?php get_footer()?>

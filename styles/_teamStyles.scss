@@ -1,0 +1,20 @@
+ul.team-list {
+  list-style: none;
+}
+
+.team-picture {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.team-item {
+  text-align: center;
+  width: 30%;
+  float: left;
+  margin-right: 5%;
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+}

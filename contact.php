@@ -1,7 +1,7 @@
 <?php
 /*
  * Template Name: Contact Page
- * Description: Standard page, but it contains a contact form. 
+ * Description: Standard page, but it contains a contact form.
  */
 ?>
 
@@ -12,9 +12,9 @@
 
 			<?php the_post(); ?>
 
-			<div class="page-content contact-content">
+			<div class="page-content contact-content user-managed-content">
 
-				<div class="six columns contact-column" >
+				<div class="six columns contact-column">
 					<div class="content">
 						<?php the_content(); ?>
 					</div>
@@ -26,7 +26,8 @@
 				</div>
 
 				<div class="six columns contact-column">
-<!-- form messages -->
+
+				<!-- form messages -->
 				<div id="form-messages" class="form-messages-contact">
 				</div>
 
@@ -47,7 +48,7 @@
 					</form>
 				</div>
 
-				
+
 
 			</div>
 
