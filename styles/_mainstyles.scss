@@ -107,18 +107,21 @@ nav {
 }
 
 .nav-links {
-  background: linear-gradient(to bottom, $light-blue , $blue); /* Standard syntax */
+  background: linear-gradient(to bottom, $light-blue , $blue);
   display: inline-block;
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin: 0;
   text-align: center;
 
   li {
-    display: inline;
+    display: inline-block;
+    margin: 0;
     position: relative;
     text-transform: uppercase;
-    font-size: 20px;
-    padding: 0 3rem;
+    font-size: 20px;    
+    padding: .5rem 3rem;
     border-right: 1px solid rgba(white, .25);
 
     a {
@@ -131,6 +134,7 @@ nav {
 
     &:hover {
       color: $blue;
+      background: $blue;
     }
   }
 }
@@ -546,10 +550,6 @@ footer {
   background: rgba(255, 255, 255, 0.95);
   left: 0;
   padding: 10px;
-  -moz-transform: translatey(-250%);
-  -ms-transform: translatey(-250%);
-  -o-transform: translatey(-250%);
-  -webkit-transform: translatey(-250%);
   transform: translatey(-250%);
 
   ul {
@@ -573,10 +573,6 @@ footer {
 }
 
 .open-mobile-menu {
-  -moz-transform: translatey(0%) !important;
-  -ms-transform: translatey(0%) !important;
-  -o-transform: translatey(0%) !important;
-  -webkit-transform: translatey(0%) !important;
   transform: translatey(0%) !important;
 }
 
