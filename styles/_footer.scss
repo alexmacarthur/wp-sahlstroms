@@ -1,0 +1,41 @@
+.footer-svg-holder {
+	svg {
+	    max-height: 40px;
+	}
+}
+
+footer {
+  height: 200px;
+  background: $gray;
+  text-align: center;
+  color: white;
+
+  .container {
+    @extend %vertical-align;
+  }
+
+  ul {
+    @extend %display-flex;
+    @extend %justify-content-space-around;
+    width: 50%;
+    margin: 0 auto;
+    list-style: none;
+
+    li {
+      color: white;
+      width: 50%;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  address {
+    color: white;
+    display: block;
+    width: 100%;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-top: 20px;
+  }
+}

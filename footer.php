@@ -5,6 +5,7 @@
 				<h4>SAHLSTROM'S HEATING, COOLING &AMP; REFRIGERATION</h4>
 					<ul>
 						<li>17585 Aspen Ave.<br>Tracy, MN 56175</li>
+						<li class="footer-svg-holder"><?php get_template_part('img/inline','facebook.svg'); ?></li>
 						<li><a href="tel:507-629-3734">507-629-3734</a><br><a href="tel:507-829-6645">507-829-6645</a></li>
 					</ul>
 				<address>Copyright © 2015, Sahlstrom’s Heating, Cooling & Refrigeration, Inc., all rights reserved, Designed &amp; Created by <a href="http://macarthur.me">Alex MacArthur</a></address>

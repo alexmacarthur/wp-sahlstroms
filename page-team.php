@@ -37,8 +37,8 @@
                 <?php $imageURL = $imageField['sizes']['medium']; ?>
                 <div class="team-picture" style="background: url('<?php echo $imageURL; ?>'); background-size: cover; background-position: center;"></div>
               <?php endif; ?>
-              <h2><?php the_field('team_member_first_name', $postID); ?> <?php the_field('team_member_last_name', $postID); ?></h2>
-              <span class="team-about"><?php the_field('team_member_about', $postID); ?></span>
+              <h2 class="team-name"><?php the_field('team_member_first_name', $postID); ?> <?php the_field('team_member_last_name', $postID); ?></h2>
+              <p class="team-about"><?php the_field('team_member_about', $postID); ?></p>
 
             </li>
         <?php endwhile; ?>

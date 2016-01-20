@@ -3,9 +3,11 @@ ul.team-list {
 }
 
 .team-picture {
-  height: 150px;
-  width: 150px;
-  margin: 0 auto;
+  height: 230px;
+  width: 215px;
+  position: relative;
+  box-shadow: 3px 3px 0px 1px rgba(0, 0, 0, 0.2);
+  margin: 0 auto 20px auto;
 }
 
 .team-item {
@@ -17,4 +19,15 @@ ul.team-list {
   &:nth-child(3n) {
     margin-right: 0;
   }
+}
+
+.team-name {
+  font-size: 25px;
+}
+
+.team-about {
+  @extend %merriweather;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 25px;
 }

@@ -59,6 +59,14 @@
   transform: translateY(50%);
 }
 
+%oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+%merriweather {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
 @mixin verticalAlign($top: 50%, $percent: -50%) {
   position: relative;
   top: $top;

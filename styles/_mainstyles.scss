@@ -5,7 +5,7 @@ body {
 
 * {
   @include transitionSpeed;
-  font-family: 'Oswald', sans-serif;
+  @extend %oswald;
   text-decoration: none;
   color: $gray;
 }
@@ -27,11 +27,14 @@ h4 {
 }
 
 p {
-  font-family: 'Merriweather Sans', sans-serif;
+  @extend %merriweather;
+  line-height: 28px;
+  font-weight: 100;
+  font-size: 18px;
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1200px;
 }
 
 .text-container {
@@ -192,7 +195,6 @@ nav {
 }
 
 .find-fb {
-  font-family: 'Merriweather Sans', sans-serif;
   color: white;
   display: inline-block;
   position: relative;
@@ -201,6 +203,15 @@ nav {
   margin-top: 2rem;
   font-weight: normal;
   text-transform: lowercase;
+
+  a {
+      @extend %merriweather;
+      font-weight: 100;
+  }
+
+  &:hover {
+
+  }
 
   svg {
     display: inline;
@@ -268,7 +279,7 @@ hr {
 .home-section {
   height: 350px;
   position: relative;
-  padding: 20px 0;
+  padding: 30px 0;
 
   div {
     height: 100%;
@@ -279,11 +290,6 @@ hr {
     font-size: 45px;
     font-weight: 800;
     margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 20px;
-    line-height: 27px;
   }
 
   img {
@@ -304,6 +310,8 @@ hr {
     background: url("../img/mn.svg") no-repeat;
     background-size: contain;
     background-position: center;
+    background-origin: content-box;
+    padding: 20px;
   }
 }
 
@@ -312,6 +320,8 @@ hr {
     background: url("../img/services.svg") no-repeat;
     background-size: contain;
     background-position: center;
+    background-origin: content-box;
+    padding: 20px;
   }
 }
 
@@ -433,6 +443,7 @@ label {
 form.contactForm {
   input,
   textarea {
+    @extend %merriweather;
     width: 70%;
     font-size: 20px;
 
@@ -466,42 +477,6 @@ input[type=submit] {
     background: $orange;
     color: white;
     border-color: $orange;
-  }
-}
-
-footer {
-  height: 200px;
-  background: $gray;
-  text-align: center;
-  color: white;
-
-  .container {
-    @extend %vertical-align;
-  }
-
-  ul {
-    @extend %display-flex;
-    @extend %justify-content-space-around;
-    width: 50%;
-    margin: 0 auto;
-    list-style: none;
-
-    li {
-      color: white;
-      width: 50%;
-      margin-bottom: 0;
-      text-transform: uppercase;
-    }
-  }
-
-  address {
-    color: white;
-    display: block;
-    width: 100%;
-    font-style: normal;
-    text-transform: uppercase;
-    font-weight: 100;
-    margin-top: 15px;
   }
 }
 
