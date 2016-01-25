@@ -5,6 +5,8 @@ var uglify = require('gulp-uglify');
 var autoprefix = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
 var rename = require("gulp-rename");
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 
 // check JavaScript
 gulp.task('jshint',function(){
@@ -27,6 +29,16 @@ gulp.task('scss', function () {
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefix('last 3 versions'))
     .pipe(gulp.dest('../styles'));
+});
+
+gulp.task('images', function() {
+  return gulp.src('../img/*')
+    .pipe(imagemin({
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngquant()]
+    }))
+    .pipe(gulp.dest('../img'));
 });
 
 // run our default gulp tasks and watch for changes

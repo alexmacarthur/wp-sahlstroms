@@ -1,8 +1,13 @@
 html,
 body {
   height: 100%;
+  background: white;
+  background:
+  linear-gradient(135deg, white 22px, $patternColor 22px, $patternColor 24px, transparent 24px, transparent 67px, $patternColor 67px, $patternColor 69px, transparent 69px),
+  linear-gradient(225deg, white 22px, $patternColor 22px, $patternColor 24px, transparent 24px, transparent 67px, $patternColor 67px, $patternColor 69px, transparent 69px)0 64px;
+  background-color:white;
+  background-size: 64px 128px
 }
-
 * {
   @include transitionSpeed;
   @extend %oswald;
@@ -53,7 +58,7 @@ nav {
   width: 100%;
   position: relative;
   padding: 2rem 0 0;
-  overflow: hidden;
+  text-align: center;
 }
 
 .nav-container {
@@ -88,11 +93,35 @@ nav {
 }
 
 .main-phone {
-  overflow: hidden;
   text-align: center;
-  margin-top: 2rem;
+  margin: 2rem auto 0 auto;
+  display: inline-block;
   position: relative;
   margin-bottom: 2rem;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 75px;
+    height: 2px;
+    background: $gray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -90px;
+  }
+
+  &:after{
+    content: '';
+    display: block;
+    width: 75px;
+    height: 2px;
+    background: $gray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -90px;
+  }
 
   a {
     color: $gray;
@@ -276,7 +305,7 @@ hr {
   @extend %justify-content-center;
 }
 
-.home-section {
+.home-row {
   height: 350px;
   position: relative;
   padding: 30px 0;
@@ -305,7 +334,7 @@ hr {
   }
 }
 
-.local-section {
+.local-row {
   .image-column {
     background: url("../img/mn.svg") no-repeat;
     background-size: contain;
@@ -315,7 +344,7 @@ hr {
   }
 }
 
-.services-section {
+.services-row {
   .image-column {
     background: url("../img/services.svg") no-repeat;
     background-size: contain;

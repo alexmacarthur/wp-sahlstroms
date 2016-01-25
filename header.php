@@ -43,8 +43,8 @@
 	<div class="main-phone">
 
 		<a href="<?php echo site_url(); ?>/contact">507-629-3437</a>
-
-	<div class="background"></div>
+		<div class="background"></div>
+		
 	</div>
 
 	<?php
