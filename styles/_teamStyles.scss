@@ -1,20 +1,14 @@
-ul.team-list {
-  list-style: none;
-}
-
 .team-picture {
   height: 230px;
   width: 215px;
   position: relative;
   box-shadow: 3px 3px 0px 1px rgba(0, 0, 0, 0.2);
   margin: 0 auto 20px auto;
+  max-width: 100%;
 }
 
 .team-item {
   text-align: center;
-  width: 30%;
-  float: left;
-  margin-right: 5%;
 
   &:nth-child(3n) {
     margin-right: 0;

@@ -4,9 +4,9 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var autoprefix = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
-var rename = require("gulp-rename");
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
+var concat      = require('gulp-concat');
 
 // check JavaScript
 gulp.task('jshint',function(){
@@ -17,9 +17,9 @@ gulp.task('jshint',function(){
 
 // minify JavaScript and put it into /dist
 gulp.task('scripts', function() {
-  gulp.src('../js/scripts.js')
+  gulp.src([ '../js/dropit.js', '../js/scripts.js'])
+    .pipe(concat('scripts.min.js'))
     .pipe(uglify())
-    .pipe(rename('scripts.min.js'))
     .pipe(gulp.dest('../js'));
 });
 
@@ -45,7 +45,7 @@ gulp.task('images', function() {
 gulp.task('default', ['jshint','scripts','scss'], function() {
 
   // watch for JavaScript changes
-  gulp.watch('../js/scripts.js', ['jshint', 'scripts']);
+  gulp.watch('../js/*.js', ['jshint', 'scripts']);
 
   // watch for SASS changes
   gulp.watch('../styles/**/*.scss', ['scss']);

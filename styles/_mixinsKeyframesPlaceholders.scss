@@ -1,21 +1,9 @@
 @mixin transitionSpeed {
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
 
 %display-flex {
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
   display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
 %justify-content-space-around {
@@ -46,16 +34,10 @@
 %vertical-align {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 %vertical-align-tweak {
-  -webkit-transform: translateY(50%);
-  -moz-transform: translateY(50%);
-  -ms-transform: translateY(50%);
   transform: translateY(50%);
 }
 
@@ -65,6 +47,14 @@
 
 %merriweather {
   font-family: 'Merriweather Sans', sans-serif;
+}
+
+%clearfix {
+  &:after {
+    content:'';
+    display: table;
+    clear: both;
+  }
 }
 
 @mixin verticalAlign($top: 50%, $percent: -50%) {
@@ -94,4 +84,10 @@
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter:blur(5px);
+}
+
+@mixin media($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
 }

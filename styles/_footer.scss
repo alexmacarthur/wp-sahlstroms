@@ -1,4 +1,6 @@
 .footer-svg-holder {
+  height: 40px;
+
   a {
     @extend %full-link;
 
@@ -19,30 +21,10 @@
 }
 
 footer {
-  height: 200px;
+  padding: 25px;
   background: $gray;
   text-align: center;
   color: white;
-
-  .container {
-    @extend %vertical-align;
-  }
-
-  ul {
-    @extend %display-flex;
-    @extend %justify-content-space-around;
-    width: 50%;
-    margin: 0 auto;
-    list-style: none;
-
-    li {
-      color: white;
-      width: 50%;
-      margin-bottom: 0;
-      text-transform: uppercase;
-      position: relative;
-    }
-  }
 
   address {
     color: white;
@@ -53,4 +35,38 @@ footer {
     font-weight: 100;
     margin-top: 20px;
   }
+}
+
+.footer-list {
+  @extend %clearfix;
+  margin: 0 auto;
+  list-style: none;
+  max-width: 500px;
+
+  li {
+    display: inline-block;
+    float: left;
+    color: white;
+    width: 33.333%;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    position: relative;
+
+    @include media($phablet-screen) {
+      width: 100%;
+      float: none;
+
+      &:nth-child(1) {
+        margin-bottom: 15px;
+      }
+
+      &:nth-child(2) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.creator-link {
+  font-weight: 500;
 }

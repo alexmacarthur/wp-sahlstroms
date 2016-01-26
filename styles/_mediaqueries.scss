@@ -14,7 +14,7 @@
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1000px) {
   .container {
     width: 90%;
   }
@@ -62,7 +62,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 750px) {
   .service-image img {
     max-width: 80%;
   }
@@ -115,7 +115,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 550px) {
   .page-testimonial-bar {
     .testimonial-part {
       text-align: center;
@@ -126,23 +126,15 @@
     .bubbles-part {
       display: none;
     }
-
-    blockquote {
-      font-size: 22px;
-      line-height: 28px;
-    }
-  }
-
-  blockquote {
-    font-size: 20px;
   }
 
   .banner {
     &.page-banner {
-      height: 110px;
+      height: auto;
 
       h1 {
         font-size: 50px;
+        margin-bottom: 0;
       }
     }
   }
@@ -151,10 +143,6 @@
     &.call-bar {
       h2 {
         font-size: 25px;
-      }
-
-      a {
-        font-size: 55px;
       }
 
       span {
@@ -200,14 +188,6 @@
     float: right;
   }
 
-  .banner {
-    height: 400px;
-  }
-
-  .banner-header {
-    font-size: 60px;
-  }
-
   .bubbles-part svg {
     display: none;
   }
@@ -225,102 +205,8 @@
     left: 0;
     width: 100%;
     height: 35px;
-    top: 0;
-    padding: 10px 0;
+    top: 0;    
+    padding: 12px 0 10px;
     border-bottom: 1px solid rgba($gray, .1);
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .main-phone {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  footer {
-    .container {
-      padding: 0;
-    }
-
-    ul {
-      width: 100%;
-    }
-  }
-
-  .logo {
-
-  }
-
-  nav {
-    padding: 0 0 1rem;
-  }
-
-  .home-section {
-    height: 300px;
-
-    .image-column {
-      @include opacity(.1);
-      background-origin: padding-box;
-      background-size: 60% 100%;
-      position: absolute;
-      z-index: -1;
-      top: 0;
-    }
-
-    &.contact-section {
-      height: auto;
-    }
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .banner.page-banner h1 {
-    font-size: 35px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .main-phone {
-    a {
-      font-size: 3.5rem;
-    }
-  }
-
-  .home-section {
-    h2 {
-      font-size: 30px;
-    }
-
-    p {
-      font-size: 17px;
-      line-height: 23px;
-    }
-  }
-
-  blockquote {
-    font-size: 17px!important;
-    line-height: 100%!important;
-  }
-
-  .home-bar.call-bar a {
-    font-size: 40px;
-  }
-
-  .banner {
-    a {
-      margin: 5px 0 0;
-      font-size: 16px;
-    }
-  }
-
-  .service-image img {
-    max-width: 90%;
-  }
-
-  .page-container {
-    h2 {
-      font-size: 3.0rem;
-      line-height: 1.2;
-    }
   }
 }

@@ -50,6 +50,7 @@
     wp_enqueue_style('custom-style');
 	}
 
+
 		/**
 	 * Add automatic image sizes
 	 */

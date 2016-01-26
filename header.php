@@ -23,10 +23,13 @@
 	<div class="mobile-nav-links">
 		<div id="close-mobile-menu"><?php get_template_part('img/inline', 'close.svg'); ?></div>
 		<ul>
-			<li>Heating<a href="<?php echo get_site_url(); ?>/heating"></a></li>
-			<li>Cooling<a href="<?php echo get_site_url(); ?>/cooling"></a></li>
-			<li>Plumbing<a href="<?php echo get_site_url(); ?>/plumbing"></a></li>
-			<li>Refrigeration<a href="<?php echo get_site_url(); ?>/refrigeration"></a></li>
+			<li>Home<a href="<?php echo get_site_url(); ?>"></a></li>
+			<li>About<a href="<?php echo get_site_url(); ?>/about"></a></li>
+			<li>Our Team<a href="<?php echo get_site_url(); ?>/team"></a></li>
+			<li>Heating Services<a href="<?php echo get_site_url(); ?>/heating"></a></li>
+			<li>Cooling Services<a href="<?php echo get_site_url(); ?>/cooling"></a></li>
+			<li>Plumbing Services<a href="<?php echo get_site_url(); ?>/plumbing"></a></li>
+			<li>Refrigeration Services<a href="<?php echo get_site_url(); ?>/refrigeration"></a></li>
 			<li>Contact<a href="<?php echo get_site_url(); ?>/contact"></a></li>
 		</ul>
 	</div>
@@ -44,7 +47,7 @@
 
 		<a href="<?php echo site_url(); ?>/contact">507-629-3437</a>
 		<div class="background"></div>
-		
+
 	</div>
 
 	<?php
@@ -62,7 +65,7 @@
 				'after'           => '',
 				'link_before'     => '',
 				'link_after'      => '',
-				'items_wrap'      => '<ul class="nav-links">%3$s</ul>',
+				'items_wrap'      => '<ul class="nav-links" id="navLinks">%3$s</ul>',
 				'depth'           => 0,
 				'walker'          => ''
 				);
@@ -83,7 +86,7 @@
 		</div>
 		<span class="find-fb"><a href="https://www.facebook.com/Sahlstroms">Find us on Facebook! <?php get_template_part('img/inline','facebook.svg'); ?></a></span>
 	</div>
-	<div class="home-slider">
+	<div class="home-slider" id="homeSlider">
 		<?php
 			// select posts in random order
 			$images = get_posts(array(

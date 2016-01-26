@@ -1,6 +1,10 @@
 .page-container {
   padding: 30px 0;
 
+  @include media($phablet-screen) {
+    padding: 30px 20px;
+  }
+
   h1,
   h2,
   h3,
@@ -21,6 +25,11 @@
     height: 5px;
     background: rgba($gray, .1);
     margin: 0 0 22px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
   svg {
@@ -47,6 +56,10 @@
     font-size: 50px;
     font-weight: 800;
     font-family: 'Oswald', sans-serif;
+
+    @include media($mobile-screen) {
+      font-size: 32px;
+    }
   }
 
   .page-contact {
@@ -82,6 +95,10 @@
 		color: $gray;
 	}
 
+  img {
+    border: 5px solid #3e3e3e;
+  }
+
 	a {
 		font-weight: 600;
 		line-height: 50px;
@@ -91,6 +108,10 @@
 	ul {
 		list-style: disc;
 		padding-left: 75px;
+
+    @include media($phablet-screen) {
+      padding-left: 25px;
+    }
 
 		li {
 			font-weight: 600;
@@ -121,6 +142,11 @@
   height: 130px;
   width: auto;
   background: $orange;
+
+  @include media($phablet-screen) {
+    height: auto;
+    padding: 10px;
+  }
 
   .container {
     height: 100%;
@@ -156,5 +182,24 @@ li.email,
     height: auto;
     border: 5px solid $gray;
     border-radius: 3px;
+  }
+}
+
+.content-area {
+  img {
+    display: block;
+    margin: 10px;
+
+    &.alignright {
+      float: right;
+    }
+
+    &.aligncenter {
+      margin: 10px auto;
+    }
+
+    &.alignleft {
+      float: left;
+    }
   }
 }

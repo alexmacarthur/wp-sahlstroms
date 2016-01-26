@@ -36,6 +36,11 @@ p {
   line-height: 28px;
   font-weight: 100;
   font-size: 18px;
+
+  @include media($mobile-screen) {
+    font-size: 16px;
+    line-height: 23px;
+  }
 }
 
 .container {
@@ -59,6 +64,10 @@ nav {
   position: relative;
   padding: 2rem 0 0;
   text-align: center;
+
+  @include media($phablet-screen) {
+    padding-top: 0;
+  }
 }
 
 .nav-container {
@@ -74,6 +83,12 @@ nav {
   svg {
     width: 100%;
     height: 150px;
+    max-width: 525px;
+
+    @include media($phablet-screen) {
+      height: auto;
+      margin-top: 15px;
+    }
 
     .svg-link {
       &:hover {
@@ -109,6 +124,10 @@ nav {
     top: 50%;
     transform: translateY(-50%);
     left: -90px;
+
+    @include media($phablet-screen) {
+      display: none;
+    }
   }
 
   &:after{
@@ -121,6 +140,10 @@ nav {
     top: 50%;
     transform: translateY(-50%);
     right: -90px;
+
+    @include media($phablet-screen) {
+      display: none;
+    }
   }
 
   a {
@@ -129,6 +152,10 @@ nav {
     font-weight: bold;
     position: relative;
     z-index: 1;
+
+    @include media($phablet-screen) {
+      font-size: 3rem;
+    }
   }
 
   .background {
@@ -149,12 +176,18 @@ nav {
 
   li {
     display: inline-block;
+    text-align: center;
     margin: 0;
     position: relative;
     text-transform: uppercase;
     font-size: 20px;    
     padding: .5rem 3rem;
     border-right: 1px solid rgba(white, .25);
+
+    @include media($tablet-screen) {
+      font-size: 15px;
+      padding: .5rem 2rem;
+    }
 
     a {
       color: white;
@@ -168,6 +201,40 @@ nav {
       color: $blue;
       background: $blue;
     }
+  }
+}
+
+.sub-menu {
+  display: block;
+  position: absolute;
+  z-index: 5;
+  margin: 5px 0 0 0;
+  width: 100%;
+  left: 0;
+  background: rgba(white, .95);
+  box-shadow: 0px 1px 1px 1px rgba($blue, .3);
+  transition: max-height .25s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+
+  li {
+    text-align: center;
+    padding: 10px 15px;
+
+    &:hover {
+      a {
+        color: white;
+      }
+    }
+
+    a {
+      color: $blue;
+
+    }
+  }
+
+  &.open {
+    max-height: 700px;
   }
 }
 
@@ -195,17 +262,42 @@ nav {
       z-index: 2;
     }
   }
+
+  @include media($mobile-screen) {
+    height: auto;
+    padding: 25px 0;
+  }
+
+  .text-container{
+    @include media($mobile-screen) {
+      top: auto;
+      transform: translateY(0);
+    }
+  }
 }
 
 .banner-link {
   border: 3px solid white;
   border-radius: 6px;
-  display: block;
+  display: inline-block;
   width: 180px;
   height: 50px;
   margin: 30px 0 0;
   line-height: 50px;
   font-size: 25px;
+
+  @include media($phablet-screen) {
+    font-size: 20px;
+  }
+
+  @include media($mobile-screen) {
+    width: 100%;
+    margin: 0;
+
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
 
   &:first-child {
     margin-right: 30px;
@@ -221,6 +313,16 @@ nav {
   font-weight: 100;
   font-size: 30px;
   color: white;
+
+  @include media($phablet-screen) {
+    font-size: 25px;
+  }
+
+  @include media($mobile-screen) {
+    font-size: 20px;
+    margin-bottom: 14px;
+    display: block;
+  }
 }
 
 .find-fb {
@@ -278,6 +380,15 @@ nav {
 
 .banner-header {
   font-size: 110px;
+
+  @include media($phablet-screen) {
+    font-size: 50px;
+  }
+
+  @include media($mobile-screen) {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
 }
 
 .page-banner-background {
@@ -301,14 +412,17 @@ hr {
 }
 
 .link-container {
-  @extend %display-flex;
-  @extend %justify-content-center;
 }
 
 .home-row {
+  @extend %clearfix;
   height: 350px;
   position: relative;
   padding: 30px 0;
+
+  @include media($phablet-screen) {
+    height: auto;
+  }
 
   div {
     height: 100%;
@@ -319,6 +433,10 @@ hr {
     font-size: 45px;
     font-weight: 800;
     margin-bottom: 10px;
+
+    @include media($mobile-screen) {
+      font-size: 25px;
+    }
   }
 
   img {
@@ -328,9 +446,24 @@ hr {
     margin: 0 auto;
   }
 
+  p {
+    margin-bottom: 0;
+  }
+
   .text-container {
     @extend %vertical-align;
     height: auto;
+
+    @include media($phablet-screen) {
+      top: auto;
+      transform: translateY(0);
+    }
+  }
+}
+
+.image-column {
+  @include media($phablet-screen) {
+    display: none;
   }
 }
 
@@ -355,8 +488,23 @@ hr {
 }
 
 .contact-section {
+  @extend %clearfix;
+
   p {
     line-height: 25px;
+    margin-bottom: 20px;
+  }
+
+  .text-column {
+    @include media($tablet-screen) {
+      text-align: center;
+    }
+  }
+}
+
+.text-column {
+  @include media($phablet-screen) {
+    text-align: center;
   }
 }
 
@@ -369,6 +517,10 @@ hr {
 
 .home-bar {
   height: 150px;
+
+  @include media($phablet-screen) {
+    height: auto;
+  }
 
   .container {
     height: 100%;
@@ -400,6 +552,15 @@ hr {
 
       a {
         font-weight: 800;
+
+        @include media($mobile-screen) {
+          font-size: 35px;
+        }
+      }
+
+      @include media($phablet-screen) {
+        top: auto;
+        transform: translateY(0);
       }
     }
   }
@@ -433,6 +594,20 @@ blockquote {
   line-height: 30px;
   font-weight: normal;
   margin: 0;
+
+  @include media($tablet-screen) {
+    font-size: 20px;
+  }
+
+  @include media($phablet-screen) {
+    top: auto;
+    transform: translateY(0);
+  }
+
+  @include media($mobile-screen) {
+    font-size: 15px;
+    line-height: 20px;
+  }
 }
 
 cite {
@@ -553,14 +728,14 @@ input[type=submit] {
   z-index: 3;
   background: rgba(255, 255, 255, 0.95);
   left: 0;
-  padding: 10px;
+  padding: 0;
   transform: translatey(-250%);
 
   ul {
     list-style-type: none;
 
     li {
-      font-size: 30px;
+      font-size: 25px;
       text-transform: uppercase;
       position: relative;
 

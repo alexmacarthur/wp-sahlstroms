@@ -15,36 +15,43 @@
 
           <div class="twelve columns">
 
-            <ul class="team-list">
+          <?php the_post(); ?>
 
-        <?php
-          $args = array(
-            'post_type' => 'team_member',
-            'posts_per_page' => -1,
-            'meta_key'  => 'team_member_last_name',
-            'orderby' => 'ASC'
-          );
+            <div class="content-area">
+              <?php the_content(); ?>
+            </div>
 
-          $teamQuery = new WP_Query( $args );
+            <div class="row team-holder">
 
-          while ( $teamQuery->have_posts() ) : $teamQuery->the_post();
-            $postID = $teamQuery->post->ID;
-        ?>
-            <li class="team-item">
+              <?php
+                $args = array(
+                  'post_type' => 'team_member',
+                  'posts_per_page' => -1,
+                  'meta_key'  => 'team_member_last_name',
+                  'orderby' => 'ASC'
+                );
 
-              <?php if(get_field('team_member_image', $postID)): ?>
-                <?php $imageField = get_field('team_member_image', $postID); ?>
-                <?php $imageURL = $imageField['sizes']['medium']; ?>
-                <div class="team-picture" style="background: url('<?php echo $imageURL; ?>'); background-size: cover; background-position: center;"></div>
-              <?php endif; ?>
-              <h2 class="team-name"><?php the_field('team_member_first_name', $postID); ?> <?php the_field('team_member_last_name', $postID); ?></h2>
-              <p class="team-about"><?php the_field('team_member_about', $postID); ?></p>
+                $teamQuery = new WP_Query( $args );
 
-            </li>
-        <?php endwhile; ?>
+                while ( $teamQuery->have_posts() ) : $teamQuery->the_post();
+                  $postID = $teamQuery->post->ID;
+              ?>
+                  <div class="four columns team-item">
 
-        <?php wp_reset_postdata(); ?>
-            </ul>
+                    <?php if(get_field('team_member_image', $postID)): ?>
+                      <?php $imageField = get_field('team_member_image', $postID); ?>
+                      <?php $imageURL = $imageField['sizes']['medium']; ?>
+                      <div class="team-picture" style="background: url('<?php echo $imageURL; ?>'); background-size: cover; background-position: center;"></div>
+                    <?php endif; ?>
+                    <h2 class="team-name"><?php the_field('team_member_first_name', $postID); ?> <?php the_field('team_member_last_name', $postID); ?></h2>
+                    <p class="team-about"><?php the_field('team_member_about', $postID); ?></p>
+
+                  </div>
+              <?php endwhile; ?>
+
+              <?php wp_reset_postdata(); ?>
+
+            </div>
           </div>
         </div>
 

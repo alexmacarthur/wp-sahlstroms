@@ -8,12 +8,23 @@
 <?php get_header(); ?>
 
     <main>
- 
-		<?php the_post(); ?>
 
-		<h1 class="page-title"><?php the_title(); ?></h1>
+      <div class="container page-container">
 
-		<?php the_content(); ?>
+        <div class="row">
+
+          <div class="twelve columns">
+
+          <?php the_post(); ?>
+
+            <div class="content-area user-managed-content">
+              <?php the_content(); ?>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- end .container -->
 
     </main>
 
