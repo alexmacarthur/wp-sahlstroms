@@ -3,16 +3,29 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
+    <meta name="description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
+    <meta name="keywords" content="HVAC, plumbing, heating, air conditioning, southwest minnesota">
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/openGraph.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration">
+    <meta property="og:url" content="http://www.sahlstromsheating.com">
+    <meta property="og:description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration">
+    <meta name="twitter:description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
+    <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/img/openGraph.jpg">
+
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<link href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,300' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    
 	<title><?php bloginfo('title')?></title>
 
 	<?php wp_head()?>
 
 </head>
 
-<body class="no-js">
+<body class="no-js" id="body">
 
 <nav>
 
@@ -20,9 +33,9 @@
 		<?php get_template_part('img/inline', 'mobilemenu.svg'); ?>
 	</div>
 
-	<div class="mobile-nav-links">
+	<div class="mobile-nav-links" id="mobileNavLinks">
 		<div id="close-mobile-menu"><?php get_template_part('img/inline', 'close.svg'); ?></div>
-		<ul>
+		<ul id="mobileNavLinksList">
 			<li>Home<a href="<?php echo get_site_url(); ?>"></a></li>
 			<li>About<a href="<?php echo get_site_url(); ?>/about"></a></li>
 			<li>Our Team<a href="<?php echo get_site_url(); ?>/team"></a></li>
@@ -88,24 +101,24 @@
 	</div>
 	<div class="home-slider" id="homeSlider">
 		<?php
-			// select posts in random order
-			$images = get_posts(array(
+			$images = new WP_Query(array(
 				'post_type' => 'homeimage',
-			      'orderby'=>'rand',
-			      'posts_per_page'   => -1
+			    'orderby'=>'rand',
+			    'posts_per_page'   => -1
 				));
 
-			if($images){
-				foreach($images as $image){
-					$theID = $image->ID;
-					?>
-						<div>
-							<img alt="<?php echo get_field('image_title', $theID); ?>" src="<?php echo get_field('home_image', $theID); ?>">
-						</div>
+			while ( $images->have_posts() ) : $images->the_post();
+                $postID = $images->post->ID;
+                ?>
 
-					<?php
-				}
-			}
+        		<div>
+					<img alt="<?php echo get_field('image_title', $postID); ?>" src="<?php echo get_field('home_image', $postID); ?>">
+				</div>
+
+			<?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+
+
 		?>
 
 	</div>
