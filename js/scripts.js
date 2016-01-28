@@ -14,8 +14,14 @@ $(document).ready(function(){
         autoplay:true
     });
 
-    $('#navLinks').dropit({
+    var $navLinks = $('#navLinks');
+
+    $navLinks.dropit({
         action: 'mouseenter'
+    });
+
+    $navLinks.on('click', '.dropit-trigger', function(e) {
+        e.preventDefault();
     });
 
     /* ajax contact form */

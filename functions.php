@@ -14,16 +14,10 @@
 		add_image_size( 'home-images', 1300, 99999, false);
 	}
 
-	// hide the admin bar on all pages
 	add_filter('show_admin_bar', '__return_false');
 
-	/* removes widgets on dashboard */
 	add_action('admin_init', 'remove_dashboard_meta');
 	function remove_dashboard_meta() {
-        //remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' );
-        //remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
-        //remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
-        //remove_meta_box( 'dashboard_activity', 'dashboard', 'side' );
         remove_meta_box( 'pageparentdiv', 'page', 'normal');
 	}
 
@@ -34,31 +28,27 @@
 
 	add_action( 'wp_enqueue_scripts', 'enqueue_my_scripts' );
 	function enqueue_my_scripts(){
-
 		wp_register_style('custom-style', get_template_directory_uri() . '/styles/style.css', array(), '1');
-
-		// register jQuery with CDN
 		wp_deregister_script( 'jquery' );
 		wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js', array(), '2.1.3', true);
 		wp_register_script('slick', ('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.js'), array('jquery'), null, true);
-
-		// register custom JavaScript
-    wp_register_script( 'custom-script', get_template_directory_uri() . '/js/scripts.min.js', array('jquery', 'slick'), '1', true);
-
-    // Enqueue my custom script, which depends on jQuery, which means jQuery is automatically loaded as well.
-    wp_enqueue_script( 'custom-script' );
-    wp_enqueue_style('custom-style');
+	    wp_register_script( 'custom-script', get_template_directory_uri() . '/js/scripts.min.js', array('jquery', 'slick'), '1', true);
+	    wp_enqueue_script( 'custom-script' );
+	    wp_enqueue_style('custom-style');
 	}
 
+	// remove image links
+	add_filter( 'the_content', 'attachment_image_link_remove_filter' ); 
+	function attachment_image_link_remove_filter( $content ) {
+		$content = preg_replace( array('{<a(.*?)(wp-att|wp-content\/uploads)[^>]*><img}', '{ wp-image-[0-9]*" /></a>}'), array('<img','" />'), $content ); 
+		return $content; 
+	}
 
-		/**
+	/**
 	 * Add automatic image sizes
 	 */
 	if ( function_exists( 'add_image_size' ) ) {
-		add_image_size( 'post-feature-img', 770, 120, true ); //(cropped)
-		add_image_size( 'member-img', 200, 200, false ); //(scaled)
-		add_image_size( 'people-img', 360, 360, true ); //(cropped)
-		add_image_size( 'people-featured-img', 150, 120, true ); //(cropped)
+		add_image_size( 'home-img', 1500, 600, true );
 	}
 
 	/* custom logo on login screen */
@@ -66,7 +56,7 @@
 
 	    <style type="text/css">
 	        body.login div#login h1 a {
-	            background-image: url('<?php echo get_template_directory_uri(); ?>/img/logo.png')!important;
+	            background-image: url('<?php echo get_template_directory_uri(); ?>/img/logo.svg')!important;
 	            padding-bottom: 3px;
 				width: 100%;
 				background-size: contain;
@@ -101,7 +91,6 @@
 
 	add_action( 'init', 'create_post_type' );
   	function create_post_type() {
-
 		register_post_type( 'team_member',
 			array(
 				'labels' => array(
@@ -125,7 +114,6 @@
 				'supports'      => array('')
 			)
 		);
-
     register_post_type( 'homeimage',
 	    array(
 	        'labels' => array(
@@ -147,7 +135,6 @@
 	}
 
 	/* HOME SLIDER IMAGES ORGANIZATION */
-
 	add_filter( 'manage_edit-homeimage_columns', 'set_custom_edit_homeimage_columns' );
 	function set_custom_edit_homeimage_columns($columns) {
 	  unset($columns['date']);
@@ -179,7 +166,6 @@
 	}
 
 	/* TEAM MEMBERS ORGANIZATION */
-
 	add_filter( 'manage_edit-team_member_columns', 'set_custom_edit_team_member_columns' );
 	function set_custom_edit_team_member_columns($columns) {
 		unset($columns['date']);
@@ -194,7 +180,6 @@
 	add_action( 'manage_team_member_posts_custom_column' , 'custom_team_member_column', 10, 2 );
 	function custom_team_member_column( $column, $post_id ) {
 		switch ( $column ) {
-
 				case 'team_member_first_name' :
 					$value = get_field( "team_member_first_name", $post_id );
 					echo '<a href="' . get_site_url() .'/wp-admin/post.php?post=' . $post_id . '&action=edit">' . $value . '</a>';
@@ -209,12 +194,9 @@
 
 	add_filter( 'manage_edit-team_member_sortable_columns', 'manage_sortable_columns_team_member' );
 	function manage_sortable_columns_team_member( $sortable_columns ) {
-
 	 $sortable_columns[ 'team_member_first_name' ] = 'team_member_first_name';
 	 $sortable_columns[ 'team_member_last_name' ] = 'team_member_last_name';
-
 	 return $sortable_columns;
-
 	}
 
 	add_theme_support( 'post-thumbnails' );

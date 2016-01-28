@@ -109,16 +109,16 @@
 
 			while ( $images->have_posts() ) : $images->the_post();
                 $postID = $images->post->ID;
+                $imageField = get_field('home_image', $postID);
+                $imageURL = $imageField['sizes']['home-img'];
                 ?>
 
         		<div>
-					<img alt="<?php echo get_field('image_title', $postID); ?>" src="<?php echo get_field('home_image', $postID); ?>">
+					<img alt="<?php echo get_field('image_title', $postID); ?>" src="<?php echo $imageURL; ?>">
 				</div>
 
 			<?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
-
-
 		?>
 
 	</div>
