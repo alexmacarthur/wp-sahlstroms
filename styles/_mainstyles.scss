@@ -260,6 +260,11 @@ nav {
 
     .text-container {
       z-index: 2;
+
+      @include media($phablet-screen) {
+        top: auto;
+        transform: translateY(0);
+      }
     }
   }
 
@@ -733,6 +738,7 @@ input[type=submit] {
 
   ul {
     list-style-type: none;
+    margin-top: 50px;
 
     li {
       font-size: 25px;

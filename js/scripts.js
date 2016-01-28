@@ -2,7 +2,6 @@ $('#body').removeClass('no-js');
 
 $(document).ready(function(){
     initMobileMenu();
-    initMobileLinkResize();
 
     $('#homeSlider').slick({
         dots: false,
@@ -20,7 +19,7 @@ $(document).ready(function(){
         action: 'mouseenter'
     });
 
-    $navLinks.on('click', '.dropit-trigger', function(e) {
+    $navLinks.on('click', '.dropit-trigger > a', function(e) {
         e.preventDefault();
     });
 
@@ -83,10 +82,6 @@ $(document).ready(function(){
 
 });
 
-window.onresize = function(){
-    initMobileLinkResize();
-};
-
 function initMobileMenu(){
     var $mobileNavLinks = $('#mobileNavLinks');
 
@@ -101,12 +96,4 @@ function initMobileMenu(){
     $('#close-mobile-menu').click(function(){
        $mobileNavLinks.removeClass('open-mobile-menu');
     });
-}
-
-function initMobileLinkResize(){
-    var $mobileNavLinksList = $('#mobileNavLinksList');
-    var windowHeight = $(window).height();
-    var linksHeight = $mobileNavLinksList.height();
-    var newMargin = (windowHeight - linksHeight)/2;
-    $mobileNavLinksList.css("margin-top",newMargin);
 }
