@@ -14,7 +14,6 @@
     <meta name="twitter:title" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration">
     <meta name="twitter:description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
     <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/img/openGraph.jpg">
-
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<link href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,300' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
@@ -47,7 +46,13 @@
 		</ul>
 	</div>
 
-	<div class="nav-container">
+	<div class="container nav-container">
+
+		<div class="ribbon">
+			<span>
+				<strong>Emergency</strong> Service Available!
+			</span>
+		</div>
 
 		<div class="logo">
 			<?php get_template_part('img/inline','logo.svg'); ?>

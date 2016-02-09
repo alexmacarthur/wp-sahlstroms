@@ -1,0 +1,43 @@
+.ribbon {
+    background: $orange;
+    border-left: 1px dashed rgba(white, .5);
+    border-right: 1px dashed rgba(white, .5);
+    box-shadow: 5px 0 0 $orange,
+                -5px 0 0 $orange;
+    height: 120px;
+    margin: 0 5px;
+    position: absolute;
+    top: -2rem;
+    width: 150px;
+
+    span {
+        color: white;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 100;
+        line-height: 3rem;
+        display: block;
+        padding: 1rem .5rem .5rem;
+    }
+
+    strong {
+        color: white;
+    }
+}
+.ribbon:after,
+.ribbon:before {
+    border-top: 15px solid $orange;
+    content: '';
+    height: 0;
+    position: absolute;
+    top: 100%;
+    width: 0;
+}
+.ribbon:after {
+    border-left: 80px solid transparent;
+    right: -6px;
+}
+.ribbon:before {
+    border-right: 80px solid transparent;
+    left: -6px;
+}

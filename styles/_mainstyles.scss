@@ -45,6 +45,11 @@ p {
 
 .container {
   max-width: 1200px;
+  width: 80%;
+
+  @include media($large-screen) {
+    width: 95%;
+  }
 }
 
 .text-container {
@@ -68,11 +73,6 @@ nav {
   @include media($phablet-screen) {
     padding-top: 0;
   }
-}
-
-.nav-container {
-  width: 50%;
-  margin: 0 auto;
 }
 
 .logo {
