@@ -2,6 +2,7 @@
     background: $orange;
     border-left: 1px dashed rgba(white, .5);
     border-right: 1px dashed rgba(white, .5);
+    border-bottom: 1px dashed rgba(white, .5);
     box-shadow: 5px 0 0 $orange,
                 -5px 0 0 $orange;
     height: 120px;
@@ -10,18 +11,24 @@
     top: -2rem;
     width: 150px;
 
-    span {
+    a {
         color: white;
         font-size: 2.5rem;
         text-transform: uppercase;
         font-weight: 100;
         line-height: 3rem;
         display: block;
-        padding: 1rem .5rem .5rem;
+        padding: 1.25rem .5rem .5rem;
+        position: relative;
+        z-index: 1;
     }
 
     strong {
         color: white;
+    }
+
+    @include media($small-screen) {
+        display: none;
     }
 }
 .ribbon:after,
@@ -40,4 +47,46 @@
 .ribbon:before {
     border-right: 80px solid transparent;
     left: -6px;
+}
+.mobile-only-es {
+    display: none;
+    width: 250px;
+    position: relative;
+    margin: 0 auto 4rem auto;
+
+    span {
+        display: block;
+        text-transform: uppercase;
+        background: $orange;
+        color: white;
+        font-weight: 800;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0px 1px 1px 0px rgba(black, 0.4);
+    }
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: -1rem;
+        border: 1.5rem solid $orange;
+        z-index: 1;
+    }
+
+    &:before {
+        left: -2rem;
+        border-right-width: 1.5rem;
+        border-left-color: transparent;
+    }
+
+    &:after {
+        right: -2rem;
+        border-left-width: 1.5rem;
+        border-right-color: transparent;
+    }
+
+    @include media($small-screen) {
+        display: block;
+    }
 }

@@ -49,9 +49,9 @@
 	<div class="container nav-container">
 
 		<div class="ribbon">
-			<span>
+			<a href="/contact">
 				<strong>Emergency</strong> Service Available!
-			</span>
+			</a>
 		</div>
 
 		<div class="logo">
@@ -68,6 +68,12 @@
 
 	</div>
 
+
+		<div class="mobile-only-es">
+			<span>
+				Emergency Services Available
+			</span>
+		</div>
 	<?php
 			$defaults = array(
 				'theme_location'  => 'primary-menu',
