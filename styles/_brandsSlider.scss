@@ -1,0 +1,47 @@
+.brands-section {
+	padding: 4rem;
+	background: white;
+    box-shadow: inset 0px 2px 1px 0px rgba(black, 0.1);
+    text-align: center;
+
+	img {
+		margin: 0 auto;
+		max-width: 100%;
+	}
+
+	li {
+		margin: 0 1rem 0;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.brands-header {
+	color: $gray;
+	font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+
+    &:before,
+    &:after {
+    	content: '';
+    	position: absolute;
+    	width: 100px;
+    	height: 2px;
+    	display: block;
+    	background: $gray;
+    	top: 50%;
+    	transform: translateY(-50%);
+    	left: -120px;
+    }
+
+    &:after {
+    	left: auto;
+    	right: -120px;
+    }
+
+}

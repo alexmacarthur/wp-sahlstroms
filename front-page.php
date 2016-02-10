@@ -134,6 +134,22 @@
 			</div>
 
 		</section>
+
+		<section class="brands-section">
+
+			<div class="container">
+
+				<h2 class="brands-header">Brands We Carry</h2>
+
+				<ul id="brandsSlider">
+					<li><img src="http://placehold.it/350x150"></li>
+				  	<li><img src="http://placehold.it/350x150"></li>
+				  	<li><img src="http://placehold.it/350x150"></li>
+				</ul>
+
+			</div>
+
+		</section>
 	
 	</main>
 

@@ -68,12 +68,12 @@
 
 	</div>
 
+	<div class="mobile-only-es">
+		<span>
+			Emergency Services Available
+		</span>
+	</div>
 
-		<div class="mobile-only-es">
-			<span>
-				Emergency Services Available
-			</span>
-		</div>
 	<?php
 			$defaults = array(
 				'theme_location'  => 'primary-menu',
@@ -100,7 +100,7 @@
 
 <?php if (is_front_page()): ?>
 
-<div class="banner">
+<section class="banner">
 	<div class="text-container">
 		<h1 class="banner-header">Nice to Heat You.</h1>
 		<span class="banner-span">Serving our community since 1996.</span>
@@ -134,7 +134,7 @@
 
 	</div>
 	<div class="background"></div>
-</div>
+</section>
 
 <?php else : ?>
 

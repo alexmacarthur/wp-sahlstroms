@@ -13,6 +13,30 @@ $(document).ready(function(){
         autoplay:true
     });
 
+    $('#brandsSlider').slick({
+        dots: false,
+        infinite: true,
+        autoplaySpeed: 5000,
+        speed: 200,
+        cssEase: 'linear',
+        autoplay:true,
+        arrows: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive : [{
+            breakpoint: 750,
+            settings: {
+                slidesToShow: 2
+            }
+        },{
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1
+            }
+        }
+        ]
+    });
+
     var $navLinks = $('#navLinks');
 
     $navLinks.dropit({

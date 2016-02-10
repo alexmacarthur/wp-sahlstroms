@@ -522,6 +522,8 @@ hr {
 
 .home-bar {
   height: 150px;
+  border-top: 1px dashed rgba(255,255,255,0.5);
+  border-bottom: 1px dashed rgba(255,255,255,0.5);
 
   @include media($phablet-screen) {
     height: auto;
@@ -535,10 +537,12 @@ hr {
   &.testimonial-bar {
     background: $orange;
     position: relative;
+    box-shadow: 0px 5px 0 $orange, 0px -5px 0 $orange;
   }
 
   &.call-bar {
     background: $green;
+    box-shadow: 0px 5px 0 $green, 0px -5px 0 $green;
 
     span {
       color: white;
