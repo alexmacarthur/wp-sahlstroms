@@ -1,4 +1,3 @@
-<!-- begin footer -->
 
 		<footer>
 			<div class="container">
@@ -11,6 +10,10 @@
 				<address>Copyright © 2015, Sahlstrom’s Heating, Cooling & Refrigeration, Inc., all rights reserved, Designed &amp; Created by <a class="creator-link" href="http://macarthur.me">Alex MacArthur</a></address>
 			</div>
 		</footer>
+
+		<div id="VanHolder">
+			<?php get_template_part('img/inline','van.svg'); ?>
+		</div>
 
 		<?php wp_footer(); ?>
 

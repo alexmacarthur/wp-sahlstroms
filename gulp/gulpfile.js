@@ -6,7 +6,8 @@ var autoprefix = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
-var concat      = require('gulp-concat');
+var concat = require('gulp-concat');
+var svgmin = require('gulp-svgmin');
 
 // check JavaScript
 gulp.task('jshint',function(){
@@ -29,6 +30,12 @@ gulp.task('scss', function () {
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefix('last 3 versions'))
     .pipe(gulp.dest('../styles'));
+});
+
+gulp.task('svg', function () {
+    return gulp.src('../img/*.svg')
+        .pipe(svgmin())
+        .pipe(gulp.dest('../img'));
 });
 
 gulp.task('images', function() {

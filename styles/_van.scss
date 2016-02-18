@@ -1,0 +1,43 @@
+@keyframes drive {
+    0% {
+		right: -100%;
+		transform: rotate(0deg);
+    }
+
+    25% {
+		transform: rotate(2deg);
+    }
+
+   	50% {
+		transform: rotate(-2deg);
+    }
+
+    100% {
+    	right: 150%;
+    	transform: rotate(2deg);
+    }
+}
+
+#Van {
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    svg {
+    	max-height: 100%;
+    }
+}
+
+#VanHolder {
+	width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    right: -200%;
+
+    &.move {
+        right: 200%;
+        animation: drive 9s ease-out forwards;
+    }
+}
+

@@ -3,22 +3,12 @@
  * Template Name: Home Page
  * Description: Just the main page.
  */
+
+$theID = strpos(get_site_url(), "localhost") ==! 0 ? 4 : 7;
+
+get_header();
+
 ?>
-
-<!-- if on the home page, call the 'home' header -->
-<?php get_header()?>
-
-	<?php 
-		$thisURL = get_site_url();
-		$contain = strpos($thisURL, "localhost");
-
-		if($contain ==! 0){
-			$theID = 4;
-		} else {
-			$theID = 7;
-		}
-	?>
-
 	<main>
 
 		<section class="home-section">
@@ -104,15 +94,12 @@
 						<div class="text-container">
 							<h2><?php echo get_field('block_1_header', $theID); ?></h2>
 							<p><?php echo get_field('block_1_content', $theID); ?></p>
-							<!-- form messages -->
-							<div id="form-messages">
-							</div>
+							<div id="form-messages"></div>
 						</div>
 					</div>
 
 					<div class="seven columns form-column">
 
-						<!-- form to email -->
 						<form action="<?php echo get_template_directory_uri(); ?>/send.php" method="post" class="contactForm home-page" id="ajax-contact">
 
 							<div class="form-field"><label>Name<span>*</span></label> <input type="text" id="name" name="name"></div>
