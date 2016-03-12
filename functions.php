@@ -1,13 +1,9 @@
 <?php
 
-	/* removes tabs on left admin menu */
 	add_action('admin_menu', 'remove_menus');
 	function remove_menus(){
 		remove_menu_page( 'edit.php' );
 		remove_menu_page( 'edit-comments.php' );
-		//remove_menu_page( 'themes.php' );
-		//remove_menu_page('plugins.php');
-		//remove_menu_page('tools.php');
 	}
 
 	if ( function_exists( 'add_image_size' ) ) {
@@ -17,6 +13,7 @@
 	add_filter('show_admin_bar', '__return_false');
 
 	add_action('admin_init', 'remove_dashboard_meta');
+	
 	function remove_dashboard_meta() {
         remove_meta_box( 'pageparentdiv', 'page', 'normal');
 	}
@@ -44,9 +41,7 @@
 		return $content; 
 	}
 
-	/**
-	 * Add automatic image sizes
-	 */
+
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'home-img', 1500, 600, true );
 	}
@@ -114,6 +109,7 @@
 				'supports'      => array('')
 			)
 		);
+
     register_post_type( 'homeimage',
 	    array(
 	        'labels' => array(
@@ -122,19 +118,18 @@
 	          'edit_item' => __('Add a Home Image'),
 	          'add_new_item' => __('Add a New Home Image')
 	        ),
-	          'public' => false,  // it's not public, it shouldn't have it's own permalink, and so on
-	        'publicly_queriable' => true,  // you should be able to query it
-	        'show_ui' => true,  // you should be able to edit it in wp-admin
-	        'exclude_from_search' => true,  // you should exclude it from search results
-	        'show_in_nav_menus' => false,  // you shouldn't be able to add it to menus
-	        'has_archive' => false,  // it shouldn't have archive page
-	        'rewrite' => false,  // it shouldn't have rewrite rules
+	          'public' => false,  
+	        'publicly_queriable' => true,  
+	        'show_ui' => true, 
+	        'exclude_from_search' => true,  
+	        'show_in_nav_menus' => false,  
+	        'has_archive' => false,  
+	        'rewrite' => false,  
 	        'supports' => array('')
 	      )
 	    );
 	}
 
-	/* HOME SLIDER IMAGES ORGANIZATION */
 	add_filter( 'manage_edit-homeimage_columns', 'set_custom_edit_homeimage_columns' );
 	function set_custom_edit_homeimage_columns($columns) {
 	  unset($columns['date']);
@@ -165,7 +160,6 @@
 
 	}
 
-	/* TEAM MEMBERS ORGANIZATION */
 	add_filter( 'manage_edit-team_member_columns', 'set_custom_edit_team_member_columns' );
 	function set_custom_edit_team_member_columns($columns) {
 		unset($columns['date']);
