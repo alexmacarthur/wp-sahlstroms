@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <meta name="description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
-    <meta name="keywords" content="HVAC, plumbing, heating, air conditioning, southwest minnesota">
+    <meta name="keywords" content="HVAC, plumbing, heating, air conditioning, Southwest Minnesota">
     <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/openGraph.jpg">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration">
@@ -24,7 +24,7 @@
 
 </head>
 
-<body class="no-js" id="body">
+<body id="body">
 
 <nav>
 
@@ -35,14 +35,15 @@
 	<div class="mobile-nav-links" id="mobileNavLinks">
 		<div id="close-mobile-menu"><?php get_template_part('img/inline', 'close.svg'); ?></div>
 		<ul id="mobileNavLinksList">
-			<li>Home<a href="<?php echo get_site_url(); ?>"></a></li>
-			<li>About<a href="<?php echo get_site_url(); ?>/about"></a></li>
-			<li>Our Team<a href="<?php echo get_site_url(); ?>/team"></a></li>
-			<li>Heating Services<a href="<?php echo get_site_url(); ?>/heating"></a></li>
-			<li>Cooling Services<a href="<?php echo get_site_url(); ?>/cooling"></a></li>
-			<li>Plumbing Services<a href="<?php echo get_site_url(); ?>/plumbing"></a></li>
-			<li>Refrigeration Services<a href="<?php echo get_site_url(); ?>/refrigeration"></a></li>
-			<li>Contact<a href="<?php echo get_site_url(); ?>/contact"></a></li>
+			<?php $site_url = get_site_url(); ?>
+			<li>Home<a href="<?php echo $site_url; ?>"></a></li>
+			<li>About<a href="<?php echo $site_url; ?>/about"></a></li>
+			<li>Our Team<a href="<?php echo $site_url; ?>/team"></a></li>
+			<li>Heating Services<a href="<?php echo $site_url; ?>/heating"></a></li>
+			<li>Cooling Services<a href="<?php echo $site_url; ?>/cooling"></a></li>
+			<li>Plumbing Services<a href="<?php echo $site_url; ?>/plumbing"></a></li>
+			<li>Refrigeration Services<a href="<?php echo $site_url; ?>/refrigeration"></a></li>
+			<li>Contact<a href="<?php echo $site_url; ?>/contact"></a></li>
 		</ul>
 	</div>
 
