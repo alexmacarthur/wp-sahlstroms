@@ -36,8 +36,20 @@
     right: -200%;
 
     &.move {
-        right: 200%;
-        animation: drive 8s ease-out forwards;
+        right: 175%;
+        animation: drive 9s ease-out forwards;
     }
+
+    img{
+        display: block; 
+        max-height: 100%;
+    }
+}
+
+.VanHolder-wrapper {
+    @extend %vertical-align;
+    position: relative;
+    height: 65%;
+    display: inline-block;
 }
 
