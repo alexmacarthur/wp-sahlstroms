@@ -1,5 +1,7 @@
 var Sahlstroms = {
 
+    windowHeight: $(window).height(),
+
     init : function() {
         this.slickSliders();
         this.navLinks();
@@ -95,6 +97,9 @@ var Sahlstroms = {
 
     mobileMenu : function() {
         var $mobileNavLinks = $('#mobileNavLinks');
+        var $mobileNavLinksList = $('#mobileNavLinksList');
+        var newMargin = ((Sahlstroms.windowHeight - $mobileNavLinksList.height()) / 2) < 75 ? 75 : (Sahlstroms.windowHeight - $mobileNavLinksList.height()) / 2;
+
         $('#mobile-menu-toggle').click(function(){
             if($mobileNavLinks.hasClass('open-mobile-menu')){
                 $mobileNavLinks.removeClass('open-mobile-menu');
@@ -102,14 +107,17 @@ var Sahlstroms = {
                 $mobileNavLinks.addClass('open-mobile-menu');
             }
         });
+
         $('#close-mobile-menu').click(function(){
            $mobileNavLinks.removeClass('open-mobile-menu');
         });
+
+        $mobileNavLinksList.css('margin-top', newMargin);
     },
 
     happyEaster : function() {
         var $VanHolder = $('#VanHolder');
-        $VanHolder.css('height', $(window).height());
+        $VanHolder.css('height', Sahlstroms.windowHeight);
         var egg = new Egg("s,a,h,l,s,t,r,o,m", function() {
             $VanHolder.addClass('move');
 
