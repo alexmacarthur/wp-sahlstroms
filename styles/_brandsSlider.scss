@@ -37,6 +37,10 @@
     	top: 50%;
     	transform: translateY(-50%);
     	left: -120px;
+
+        @include media($mobile-screen) {
+            width: 0;
+        }
     }
 
     &:after {

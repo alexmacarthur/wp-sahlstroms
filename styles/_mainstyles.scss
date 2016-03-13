@@ -306,6 +306,10 @@ nav {
 
   &:first-child {
     margin-right: 30px;
+
+     @include media($phablet-screen) {
+      margin-right: 0;
+     }
   }
 
   &:hover {
