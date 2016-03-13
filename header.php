@@ -70,7 +70,7 @@
 	</div>
 
 	<div class="mobile-only-es">
-		<span>
+		<span id="eOnlyTrigger">
 			Emergency Services Available
 		</span>
 	</div>

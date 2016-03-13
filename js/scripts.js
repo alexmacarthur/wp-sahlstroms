@@ -1,6 +1,8 @@
 var Sahlstroms = {
 
     windowHeight: $(window).height(),
+    windowWidth: $(window).width(),
+    $VanHolder : $('#VanHolder'),
 
     init : function() {
         this.slickSliders();
@@ -116,16 +118,26 @@ var Sahlstroms = {
     },
 
     happyEaster : function() {
-        var $VanHolder = $('#VanHolder');
-        $VanHolder.css('height', Sahlstroms.windowHeight);
-        var egg = new Egg("s,a,h,l,s,t,r,o,m", function() {
-            $VanHolder.addClass('move');
+        Sahlstroms.$VanHolder.css('height', Sahlstroms.windowHeight);
 
-            setTimeout(function(){
-                $VanHolder.removeClass('move');
-            }, 9000);
-        }).listen();
+        if(Sahlstroms.windowWidth > 750) {
+            var egg = new Egg("s,a,h,l,s,t,r,o,m", function(e) {
+                Sahlstroms.easterEgg();
+            }).listen();
+        } else {
+            $('.mobile-only-es').on('click', '#eOnlyTrigger', function(e) {
+                Sahlstroms.easterEgg();
+            });
+        }
     },
+
+    easterEgg : function() {
+        Sahlstroms.$VanHolder.addClass('move');
+
+        setTimeout(function(){
+            Sahlstroms.$VanHolder.removeClass('move');
+        }, 9000);
+    }
 };
 
 $(document).ready(function(){
