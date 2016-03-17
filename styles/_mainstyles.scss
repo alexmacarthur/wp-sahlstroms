@@ -9,8 +9,8 @@ body {
   background-size: 64px 128px
 }
 * {
-  @include transitionSpeed;
   @extend %oswald;
+  transition: all 0.1s ease-in-out;
   text-decoration: none;
   color: $gray;
 }
