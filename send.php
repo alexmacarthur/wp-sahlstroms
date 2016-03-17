@@ -35,7 +35,7 @@
         }
 
         // Set the recipient email address.
-        $recipient = "bensahlstrom@gmail.com,alex@macarthur.me";
+        $recipient = "alex@macarthur.me";
 
         // Set the email subject.
         $subject = "Sahlstroms HVAC Message Submitted";

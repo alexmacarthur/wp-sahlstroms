@@ -16,6 +16,10 @@
 			margin-right: 0;
 		}
 	}
+
+    @include media($phablet-screen) {
+        padding: 4rem .5rem;
+    }
 }
 
 .brands-header {
