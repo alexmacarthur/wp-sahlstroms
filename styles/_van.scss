@@ -13,8 +13,30 @@
     }
 
     100% {
-    	right: 150%;
-    	transform: rotate(2deg);
+        right: 150%;
+        transform: rotate(2deg);
+    }
+}
+
+@include media($phablet-screen) {
+    @keyframes drive {
+        0% {
+            right: -100%;
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(2deg);
+        }
+
+        50% {
+            transform: rotate(-2deg);
+        }
+
+        100% {
+            right: 500%;
+            transform: rotate(2deg);
+        }
     }
 }
 
@@ -36,8 +58,11 @@
     right: -200%;
 
     &.move {
-        right: 175%;
         animation: drive 9s ease-out forwards;
+
+        @include media($phablet-screen) {
+            animation: drive 7s ease-out forwards;
+        }
     }
 
     img{
