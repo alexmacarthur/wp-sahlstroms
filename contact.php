@@ -27,11 +27,8 @@
 
 				<div class="six columns contact-column">
 
-				<!-- form messages -->
-				<div id="form-messages" class="form-messages-contact">
-				</div>
+					<div class="form-messages form-messages-contact"></div>
 
-					<!-- form to email -->
 					<form action="<?php echo get_template_directory_uri(); ?>/send.php" method="post" class="contactForm home-page" id="ajax-contact">
 
 						<div class="form-field"><label>Name<span>*</span></label> <input type="text" id="name" name="name"></div>
@@ -46,6 +43,8 @@
 
 						<input type="submit" name="submit" value="Submit">
 					</form>
+
+					<div class="form-messages mobile-only form-messages-contact"></div>
 				</div>
 
 

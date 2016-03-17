@@ -16,7 +16,7 @@
     width: 90%;
   }
 
-  #form-messages {
+  .form-messages {
     margin-bottom: 20px;
   }
 
@@ -33,6 +33,7 @@
 
     input,
     textarea {
+      float: none;
       width: 100%;
     }
   }

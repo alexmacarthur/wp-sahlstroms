@@ -62,7 +62,7 @@ var Sahlstroms = {
 
     ajaxForms : function() {
         var form = $('#ajax-contact');
-        var formMessages = $('#form-messages');
+        var formMessages = $('.form-messages');
         $(form).submit(function(e) {
             e.preventDefault();
 

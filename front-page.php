@@ -94,7 +94,7 @@ get_header();
 						<div class="text-container">
 							<h2><?php echo get_field('block_1_header', $theID); ?></h2>
 							<p><?php echo get_field('block_1_content', $theID); ?></p>
-							<div id="form-messages"></div>
+							<div class="form-messages"></div>
 						</div>
 					</div>
 
@@ -114,6 +114,9 @@ get_header();
 
 							<input type="submit" name="submit" value="Submit">
 						</form>
+							
+						<div class="form-messages mobile-only"></div>
+
 					</div>
 
 				</div>

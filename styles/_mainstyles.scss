@@ -638,12 +638,30 @@ form {
   }
 }
 
-#form-messages {
+.form-messages {
   height: auto;
+
+  @include media($tablet-screen) {
+      display: none;
+  }
+
+  &.mobile-only {
+    display: none;
+
+    @include media($tablet-screen) {
+      display: block;
+    }
+  }
 }
 
 .form-messages-contact {
   margin-bottom: 25px;
+}
+
+.google-map {
+  @include media($tablet-screen){
+    margin-bottom: 3rem;
+  }
 }
 
 label {
