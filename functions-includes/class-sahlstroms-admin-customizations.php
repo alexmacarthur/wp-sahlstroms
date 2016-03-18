@@ -34,8 +34,13 @@ class Sahlstroms_Admin_Customizations {
 	<?php }
 
 	public function hide_editor() {
-		$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'];
-		if( !isset( $post_id ) ) return;
+		if(isset($_GET['post'])){
+			$post_id = $_GET['post'];
+		} else if(isset($_POST['post_id'])) {
+			$post_id = $_POST['post_id'];
+		} else {
+			$post_id = null;
+		}
 
 		if(get_the_title($post_id) === 'Home'){
 			remove_post_type_support('page', 'editor');

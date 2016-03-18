@@ -27,7 +27,7 @@
                 $args = array(
                   'post_type' => 'team_member',
                   'posts_per_page' => -1,
-                  'meta_key'  => 'team_member_last_name',
+                  'meta_key'  => 'team_member_name',
                   'orderby' => 'ASC'
                 );
 
@@ -43,8 +43,12 @@
                       <?php $imageURL = $imageField['sizes']['medium']; ?>
                       <div class="team-picture" style="background: url('<?php echo $imageURL; ?>'); background-size: cover; background-position: center;"></div>
                     <?php endif; ?>
-                    <h2 class="team-name"><?php the_field('team_member_first_name', $postID); ?> <?php the_field('team_member_last_name', $postID); ?></h2>
-                    <p class="team-about"><?php the_field('team_member_about', $postID); ?></p>
+                    <h2 class="team-name"><?php the_field('team_member_name', $postID); ?></h2>
+                    <span class="team-title"><?php the_field('team_member_title', $postID); ?></span>
+                    <hr class="team-divider">
+                    <div class="team-about">
+                      <?php echo get_field('team_member_about', $postID); ?>
+                    </div>
 
                   </div>
               <?php endwhile; ?>
