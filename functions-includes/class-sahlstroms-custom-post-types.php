@@ -81,20 +81,27 @@ class Sahlstroms_Custom_Post_Types {
 		unset($columns['date']);
 		unset($columns['title']);
 		$columns['team_member_name']  = 'Name';
+		$columns['team_member_order']  = 'Order of Display';
 		return $columns;
 	}
 	
-	function custom_team_member_column( $column, $post_id ) {
+	public function custom_team_member_column( $column, $post_id ) {
 		switch ( $column ) {
 			case 'team_member_name' :
 				$value = get_field( "team_member_name", $post_id );
 				echo '<a href="' . get_site_url() .'/wp-admin/post.php?post=' . $post_id . '&action=edit">' . $value . '</a>';
 					break;
+
+			case 'team_member_order' :
+				$value = get_field( "team_member_order", $post_id );
+				echo '<a href="' . get_site_url() .'/wp-admin/post.php?post=' . $post_id . '&action=edit">' . $value . '</a>';
+					break;
 		}
 	}
 	
-	function manage_sortable_columns_team_member( $sortable_columns ) {
+	public function manage_sortable_columns_team_member( $sortable_columns ) {
 	 	$sortable_columns[ 'team_member_name' ] = 'team_member_name';
+	 	$sortable_columns[ 'team_member_order' ] = 'team_member_order';
 	 	return $sortable_columns;
 	}
 }

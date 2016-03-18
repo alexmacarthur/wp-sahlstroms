@@ -27,7 +27,7 @@
                 $args = array(
                   'post_type' => 'team_member',
                   'posts_per_page' => -1,
-                  'meta_key'  => 'team_member_name',
+                  'meta_key'  => 'team_member_order',
                   'orderby' => 'ASC'
                 );
 
