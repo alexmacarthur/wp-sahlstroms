@@ -64,7 +64,7 @@
 
 	<div class="main-phone">
 
-		<a href="<?php echo site_url(); ?>/contact">507-629-3437</a>
+		<a href="<?php echo site_url(); ?>/contact">507-629-3734</a>
 		<div class="background"></div>
 
 	</div>

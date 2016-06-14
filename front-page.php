@@ -125,6 +125,8 @@ get_header();
 
 		</section>
 
+		<!--
+
 		<section class="brands-section">
 
 			<div class="container">
@@ -140,6 +142,8 @@ get_header();
 			</div>
 
 		</section>
+
+		-->
 	
 	</main>
 
