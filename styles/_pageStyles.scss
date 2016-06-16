@@ -35,6 +35,10 @@
   svg {
     width: 100%;
     height: 100%;
+
+    .page--cooling & {
+      margin-top: -4rem;
+    }
   }
 
   .contact-content {

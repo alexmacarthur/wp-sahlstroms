@@ -5,9 +5,10 @@
  */
 ?>
 
+<?php global $post; ?>
 <?php get_header()?>
 
-	<main>
+	<main class="page--<?= $post->post_name; ?>">
 
         <div class="container page-container">
 

@@ -120,15 +120,19 @@ var Sahlstroms = {
     happyEaster : function() {
         Sahlstroms.$VanHolder.css('height', Sahlstroms.windowHeight);
 
-        if(Sahlstroms.windowWidth > 750) {
-            var egg = new Egg("s,a,h,l,s,t,r,o,m", function(e) {
-                Sahlstroms.easterEgg();
-            }).listen();
-        } else {
-            $('.mobile-only-es').on('click', '#eOnlyTrigger', function(e) {
-                Sahlstroms.easterEgg();
-            });
-        }
+        var egg = new Egg("s,a,h,l,s,t,r,o,m", function(e) {
+            Sahlstroms.easterEgg();
+        }).listen();
+
+        $('.mobile-only-es').on('click', '#eOnlyTrigger', function(e) {
+            e.preventDefault();
+            Sahlstroms.easterEgg();
+        });
+
+        $('.ribbon').on('click', '#eBanner', function(e) {
+            e.preventDefault();
+            Sahlstroms.easterEgg();
+        });
     },
 
     easterEgg : function() {

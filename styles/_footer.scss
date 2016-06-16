@@ -26,7 +26,13 @@ footer {
   text-align: center;
   color: white;
 
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+
   address {
+    font-family: 'Merriweather Sans', sans-serif;
     color: white;
     display: block;
     width: 100%;
@@ -69,6 +75,7 @@ footer {
 
 .creator-link {
   font-weight: 500;
+  font-family: 'Merriweather Sans', sans-serif;
 
   &:hover {
     color: $orange;

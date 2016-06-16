@@ -73,7 +73,7 @@
 	<div class="container nav-container">
 
 		<div class="ribbon">
-			<a href="/contact">
+			<a href="/contact" id="eBanner">
 				<strong>Emergency</strong> Service Available!
 			</a>
 		</div>
