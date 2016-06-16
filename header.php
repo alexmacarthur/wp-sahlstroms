@@ -20,6 +20,29 @@
     
 	<title><?php bloginfo('title')?></title>
 
+	<script type="application/ld+json">
+		{
+		  	"@context": "http://schema.org",
+		  	"@type": "LocalBusiness",
+		  	"address": {
+		    "@type": "PostalAddress",
+		    "addressLocality": "Tracy",
+		    "addressRegion": "MN",
+		    "postalCode":"56175",
+		    "streetAddress": "17858 Aspen Avenue"
+	  	},
+	  	"description": "Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.",
+	  	"name": "Sahlstrom's Heating and Refrigeration",
+	  	"telephone": "507-629-3734",
+	  	"geo": {
+		    "@type": "GeoCoordinates",
+		    "latitude": "44.3065071",
+		    "longitude": "-95.5752504"
+	 	}, 			
+	  	"sameAs" : [ "https://www.facebook.com/Sahlstroms"]
+		}
+	</script>
+
 	<?php wp_head()?>
 
 </head>
