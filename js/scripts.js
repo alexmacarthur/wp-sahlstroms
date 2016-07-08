@@ -66,12 +66,10 @@ var Sahlstroms = {
         $(form).submit(function(e) {
             e.preventDefault();
 
-            var formData = $(form).serialize();
-
             $.ajax({
                 type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
+                url: sahlstroms.ajax_url,
+                data: $(form).serialize() + '&action=email_action'
             })
             .done(function(response) {
                 $(formMessages).removeClass('error');
@@ -147,5 +145,3 @@ var Sahlstroms = {
 $(document).ready(function(){
     Sahlstroms.init();
 });
-
-
