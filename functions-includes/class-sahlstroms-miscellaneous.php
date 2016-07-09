@@ -4,6 +4,11 @@ class Sahlstroms_Miscellaneous {
 
 	public function __construct() {
 		add_action('init', array($this, 'register_menu'));
+		add_action( 'wp_ajax_email_action', 'email_action' );
+	}
+	
+	public function email_action() {
+		
 	}
 
 	public function register_menu() {
