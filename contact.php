@@ -29,7 +29,7 @@
 
 					<div class="form-messages form-messages-contact"></div>
 
-					<form action="<?php echo get_template_directory_uri(); ?>/send.php" method="post" class="contactForm home-page" id="ajax-contact">
+					<form action="/" method="post" class="contactForm home-page" id="ajax-contact">
 
 						<div class="form-field"><label>Name<span>*</span></label> <input type="text" id="name" name="name"></div>
 

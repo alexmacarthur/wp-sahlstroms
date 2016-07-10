@@ -100,7 +100,7 @@ get_header();
 
 					<div class="seven columns form-column">
 
-						<form action="<?php echo get_template_directory_uri(); ?>/send.php" method="post" class="contactForm home-page" id="ajax-contact">
+						<form action="<?= admin_url('admin-ajax.php?action=email_action'); ?>" method="post" class="contactForm home-page" id="ajax-contact">
 
 							<div class="form-field"><label>Name<span>*</span></label> <input type="text" id="name" name="name"></div>
 

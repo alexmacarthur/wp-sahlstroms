@@ -66,14 +66,13 @@ var Sahlstroms = {
         $(form).submit(function(e) {
             e.preventDefault();
 
-            console.log($(form).serialize() + '&action=email_action');
-
             $.ajax({
                 type: 'POST',
                 url: sahlstroms.ajax_url,
-                data: $(form).serialize() + '&action=email_action'
+                data: $(form).serialize() + '&action=email_action&is'
             })
             .done(function(response) {
+
                 $(formMessages).removeClass('error');
                 $(formMessages).addClass('success');
                 $(formMessages).text("Your message was successfully sent.");
