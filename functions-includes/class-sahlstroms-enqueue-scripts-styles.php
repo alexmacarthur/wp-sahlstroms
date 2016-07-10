@@ -13,7 +13,8 @@ class Sahlstroms_Enqueue_Scripts_Styles {
 		wp_register_script('custom-script', get_template_directory_uri() . '/js/scripts.min.js', array('jquery', 'slick'), null, true);
 		wp_enqueue_script('custom-script');
 		wp_enqueue_style('custom-style');
-		wp_localize_script( 'email_ajax', 'email_action', array(
+
+		wp_localize_script( 'custom-script', 'sahlstroms', array(
 			'ajax_url' => admin_url( 'admin-ajax.php' )
 		));
 	}
