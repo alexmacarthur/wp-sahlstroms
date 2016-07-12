@@ -4,9 +4,7 @@
 
 	<div class="form-form-field"><label>Phone Number</label> <input type="text" id="phonenumber" name="phonenumber"></div>
 
-	<div class="form-field"><label>Email<span>*</span></label> <input type="text" id="email" name="email"></div>
-
-	<div class="form-field"><label>Address</label> <input type="text" id="address" name="address"></div>
+	<div class="form-field"><label>Email Address<span>*</span></label> <input type="text" id="email" name="email"></div>
 
 	<div class="form-field"><label>City, State</label> <input type="text" id="citystate" name="citystate"></div>
 
@@ -14,5 +12,3 @@
 
 	<input type="submit" name="submit" value="Submit">
 </form>
-
-<div class="form-messages mobile-only <?php if(is_page('contact')): ?>form-messages-contact<?php endif; ?>"></div>

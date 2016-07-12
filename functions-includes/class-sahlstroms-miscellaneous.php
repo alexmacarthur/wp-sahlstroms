@@ -6,6 +6,11 @@ class Sahlstroms_Miscellaneous {
 		add_action('init', array($this, 'register_menu'));
 		add_action( 'wp_ajax_email_action', array($this, 'email_action') );
 		add_action( 'wp_ajax_nopriv_email_action', array($this, 'email_action') );
+		add_filter( 'user_contactmethods', array($this, 'modify_contact_methods'));
+		add_action( 'show_user_profile', array($this, 'custom_user_field') );
+		add_action( 'edit_user_profile', array($this, 'custom_user_field') );
+		add_action( 'personal_options_update', array($this, 'my_save_custom_user_profile_fields') );
+		add_action( 'edit_user_profile_update', array($this, 'my_save_custom_user_profile_fields') );
 	}
 	
 	public function email_action() {
@@ -14,6 +19,7 @@ class Sahlstroms_Miscellaneous {
 		$name = str_replace(array("\r","\n"),array(" "," "),$name);
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
         $phonenumber = trim($_POST["phonenumber"]);
+        $address = trim($_POST["address"]);
         $citystate = trim($_POST["citystate"]);
         $message = trim($_POST["message"]);
 
@@ -35,17 +41,30 @@ class Sahlstroms_Miscellaneous {
             exit;
         }
 
-        $recipient = "alex@macarthur.me";
+        $users = get_users();
+        $emailArray = [];
+        foreach($users as $user) {
+        	echo get_the_author_meta('get_messages', $user->ID);
+        	if(get_the_author_meta('get_messages', $user->ID) === 'yes') {
+        		array_push($emailArray, $user->data->user_email); 
+        	}
+        }
+        $recipients = implode(',', $emailArray);
+
+        $email_headers = "From: $name <$email>";
+        $email_headers .= "Reply-To: $email\r\n";
+        $email_headers .= "MIME-Version: 1.0\r\n";
+        $email_headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $subject = "Sahlstroms HVAC Message Submitted";
         $email_content = "Name: $name\n";
-        $email_content .= "Phone Number: $phonenumber\n";
+        $email_content .= "Phone: $phonenumber\n";
         $email_content .= "Email: $email\n";
+        $email_content .= "Address: $address\n";
         $email_content .= "City, State: $citystate\n";
         $email_content .= "Message:\n$message\n";
-        $email_headers = "From: $name <$email>";
 
-        if (mail($recipient, $subject, $email_content, $email_headers)) {
+        if (mail($recipients, $subject, $email_content, $email_headers)) {
             http_response_code(200);
             echo "Thanks! Your message has been sent.";
         } else {
@@ -73,5 +92,35 @@ class Sahlstroms_Miscellaneous {
 	    unset($paths[0]);
 	    $paths[] = get_stylesheet_directory() . '/acf-fields';
 	    return $paths;
+	}
+
+	public function modify_contact_methods($profile_fields) {
+		$profile_fields['phone_number'] = 'Phone Number';
+		return $profile_fields;
+	}
+
+	public function custom_user_field( $user ) {
+		$getMessages = get_the_author_meta( 'get_messages', $user->ID);
+		?>
+		    <h3><?php _e('Notifications'); ?></h3>
+		    <p>If checked, this user will recieve messages when they're submitted on the site.</p>
+		    <table class="form-table">
+		        <tr>
+		            <th>
+		                <label for="company">Recieve Messages?</label>
+		            </th>
+		            <td>
+		                <label><input type="checkbox" name="get_messages" <?php if ($getMessages == 'yes' ): ?> checked="checked"<?php endif; ?> value="yes" />Yes, receive messages.</label>
+		            </td>
+		        </tr>
+		    </table>
+		<?php 
+	}
+
+	public function my_save_custom_user_profile_fields( $user_id ) {
+	    if ( !current_user_can( 'edit_user', $user_id ) )
+	        return FALSE;
+
+	    update_usermeta( $user_id, 'get_messages', $_POST['get_messages'] );
 	}
 }
