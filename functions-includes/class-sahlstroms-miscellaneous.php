@@ -16,7 +16,7 @@ class Sahlstroms_Miscellaneous {
 	public function email_action() {
 
         $name = strip_tags(trim($_POST["name"]));
-		$name = str_replace(array("\r","\n"),array(" "," "),$name);
+	$name = str_replace(array("\r","\n"),array(" "," "),$name);
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
         $phonenumber = trim($_POST["phonenumber"]);
         $address = trim($_POST["address"]);
@@ -41,7 +41,7 @@ class Sahlstroms_Miscellaneous {
             exit;
         }
 
-		$users = get_users();
+	$users = get_users();
         $emailArray = [];
         $phoneArray = [];
         foreach($users as $user) {
@@ -63,6 +63,8 @@ class Sahlstroms_Miscellaneous {
         $email_headers .= "Reply-To: $email\r\n";
         $email_headers .= "MIME-Version: 1.0\r\n";
         $email_headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        
+        $text_headers = "Content-Type: text/plain";
 
         $subject = "Sahlstroms HVAC Message Submitted";
         $email_content = "Name: $name\n";
@@ -70,7 +72,15 @@ class Sahlstroms_Miscellaneous {
         $email_content .= "Email: $email\n";
         $email_content .= "Address: $address\n";
         $email_content .= "City, State: $citystate\n";
+        $email_content .= "\n";
         $email_content .= "Message:\n$message\n";
+        
+        $text_content = "$name\n";
+        $text_content .= "$phonenumber\n";
+        $text_content .= "$email\n";
+        $text_content .= "$address";
+        
+        mail($textRecipients, '', $text_content, $text_headers);
 
         if (mail($recipients, $subject, $email_content, $email_headers)) {
             http_response_code(200);
