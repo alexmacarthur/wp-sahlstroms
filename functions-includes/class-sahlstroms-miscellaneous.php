@@ -41,15 +41,23 @@ class Sahlstroms_Miscellaneous {
             exit;
         }
 
-        $users = get_users();
+		$users = get_users();
         $emailArray = [];
+        $phoneArray = [];
         foreach($users as $user) {
-        	echo get_the_author_meta('get_messages', $user->ID);
+
         	if(get_the_author_meta('get_messages', $user->ID) === 'yes') {
         		array_push($emailArray, $user->data->user_email); 
+
+        		$phoneNumber = get_the_author_meta('phone_number', $user->ID);
+        		if($phoneNumber) {
+        			$phoneNumber = preg_replace("/\D/", "", $phoneNumber) . '@vtext.com';
+        			array_push($phoneArray, $phoneNumber); 
+        		}
         	}
         }
         $recipients = implode(',', $emailArray);
+        $textRecipients = implode(',', $phoneArray);
 
         $email_headers = "From: $name <$email>";
         $email_headers .= "Reply-To: $email\r\n";

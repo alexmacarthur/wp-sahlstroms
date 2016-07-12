@@ -82,6 +82,7 @@ var Sahlstroms = {
                 $('#message').val('');
                 $('#phonenumber').val('');
                 $('#citystate').val('');
+                $('#address').val('');
             })
             .fail(function(data) {
                 $(formMessages).removeClass('success');
