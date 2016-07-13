@@ -10,7 +10,15 @@ var Sahlstroms = {
         this.ajaxForms();
         this.mobileMenu();
         this.happyEaster();
+        this.flexboxCheck();
     },
+
+    flexboxCheck : function() {
+        var d = document.documentElement.style;
+        if (!('flexWrap' in d) && !('WebkitFlexWrap' in d) && !('msFlexWrap' in d)){
+            $('body').addClass('no-flexbox');
+        }
+    }, 
 
     slickSliders : function() {
         $('#homeSlider').slick({
@@ -66,14 +74,13 @@ var Sahlstroms = {
         $(form).submit(function(e) {
             e.preventDefault();
 
-            var formData = $(form).serialize();
-
             $.ajax({
                 type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
+                url: sahlstroms.ajax_url,
+                data: $(form).serialize() + '&action=email_action&is'
             })
             .done(function(response) {
+
                 $(formMessages).removeClass('error');
                 $(formMessages).addClass('success');
                 $(formMessages).text("Your message was successfully sent.");
@@ -83,6 +90,7 @@ var Sahlstroms = {
                 $('#message').val('');
                 $('#phonenumber').val('');
                 $('#citystate').val('');
+                $('#address').val('');
             })
             .fail(function(data) {
                 $(formMessages).removeClass('success');
@@ -147,5 +155,3 @@ var Sahlstroms = {
 $(document).ready(function(){
     Sahlstroms.init();
 });
-
-

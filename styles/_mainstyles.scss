@@ -43,6 +43,18 @@ p {
   }
 }
 
+.text-container {
+  position: relative;
+}
+
+.columns {
+  margin-left: 0;
+
+  .no-flexbox & {
+    margin-left: 4%;
+  }
+}
+
 .container {
   max-width: 1200px;
   width: 80%;
@@ -50,10 +62,6 @@ p {
   @include media($large-screen) {
     width: 95%;
   }
-}
-
-.text-container {
-  @extend %vertical-align;
 }
 
 a {
@@ -249,6 +257,11 @@ nav {
   text-transform: uppercase;
   position: relative;
 
+  .text-container {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   h1 {
     font-weight: 800;
   }
@@ -420,21 +433,16 @@ hr {
   margin: 10px 0 0;
 }
 
-.link-container {
-}
-
 .home-row {
   @extend %clearfix;
-  height: 350px;
+  display: flex;
+  align-items: center;
   position: relative;
   padding: 30px 0;
 
   @include media($phablet-screen) {
     height: auto;
-  }
-
-  div {
-    height: 100%;
+    display: block;
   }
 
   h2 {
@@ -460,7 +468,6 @@ hr {
   }
 
   .text-container {
-    @extend %vertical-align;
     height: auto;
 
     @include media($phablet-screen) {
@@ -471,6 +478,8 @@ hr {
 }
 
 .image-column {
+  height: 300px;
+
   @include media($phablet-screen) {
     display: none;
   }
@@ -686,9 +695,13 @@ form.contactForm {
       border-color: $blue;
     }
 
-    &[type=submit]:focus {
-      color: $orange;
-      border-color: $orange;
+    &[type=submit] {
+      @extend %oswald;
+
+      &:focus {
+        color: $orange;
+        border-color: $orange;
+      }
 
       &:hover {
         color: white;
