@@ -14,87 +14,84 @@ class Sahlstroms_Miscellaneous {
 	}
 	
 	public function email_action() {
-
-        $name = strip_tags(trim($_POST["name"]));
-	$name = str_replace(array("\r","\n"),array(" "," "),$name);
-        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $phonenumber = trim($_POST["phonenumber"]);
-        $address = trim($_POST["address"]);
-        $citystate = trim($_POST["citystate"]);
-        $message = trim($_POST["message"]);
-
-        if ( empty($name) ) {
-            http_response_code(400);
-            echo "Please enter at least your first name.";
-            exit;
-        }
-
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            http_response_code(400);
-            echo "Please enter a valid email address.";
-            exit;
-        }
-
-        if ( empty($message) ) {
-            http_response_code(400);
-            echo "Please enter a message.";
-            exit;
-        }
-
-	$users = get_users();
-        $emailArray = [];
-        $phoneArray = [];
-        foreach($users as $user) {
-
-        	if(get_the_author_meta('get_messages', $user->ID) === 'yes') {
-        		array_push($emailArray, $user->data->user_email); 
-
-        		$phoneNumber = get_the_author_meta('phone_number', $user->ID);
-        		if($phoneNumber) {
-        			$phoneNumber = preg_replace("/\D/", "", $phoneNumber) . '@vtext.com';
-        			array_push($phoneArray, $phoneNumber); 
-        		}
-        	}
-        }
-        $recipients = implode(',', $emailArray);
-        $textRecipients = implode(',', $phoneArray);
-
-        $email_headers = "From: $name <$email>";
-        $email_headers .= "Reply-To: $email\r\n";
-        $email_headers .= "MIME-Version: 1.0\r\n";
-        $email_headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-        
-        $text_headers = "Content-Type: text/plain";
-
-        $subject = "Sahlstroms HVAC Message Submitted";
-        $email_content = "Name: $name\n";
-        $email_content .= "Phone: $phonenumber\n";
-        $email_content .= "Email: $email\n";
-        $email_content .= "Address: $address\n";
-        $email_content .= "City, State: $citystate\n";
-        $email_content .= "\n";
-        $email_content .= "Message:\n$message\n";
-        
-        $text_content = "$name\n";
-        $text_content .= "$phonenumber\n";
-        $text_content .= "$email\n";
-        $text_content .= "$address";
-
-        if (mail($recipients, $subject, $email_content, $email_headers)) {
-            http_response_code(200);
-            echo "Thanks! Your message has been sent.";
-        } else {
-            http_response_code(500);
-            echo "Oops! Something went wrong and we couldn't send your message.";
-        }
-
-        mail($textRecipients, '', $text_content, $text_headers);
-
-       	if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) || !strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])){
-			wp_redirect(home_url() . '/contact?formSubmitted');
-		}
-
-        die();   
+	        $name = strip_tags(trim($_POST["name"]));
+		$name = str_replace(array("\r","\n"),array(" "," "),$name);
+	        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+	        $phonenumber = trim($_POST["phonenumber"]);
+	        $address = trim($_POST["address"]);
+	        $citystate = trim($_POST["citystate"]);
+	        $message = trim($_POST["message"]);
+	
+	        if ( empty($name) ) {
+	            http_response_code(400);
+	            echo "Please enter at least your first name.";
+	            exit;
+	        }
+	
+	        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	            http_response_code(400);
+	            echo "Please enter a valid email address.";
+	            exit;
+	        }
+	
+	        if ( empty($message) ) {
+	            http_response_code(400);
+	            echo "Please enter a message.";
+	            exit;
+	        }
+	
+		$users = get_users();
+	        $emailArray = [];
+	        $phoneArray = [];
+	        foreach($users as $user) {
+	        	if(get_the_author_meta('get_messages', $user->ID) === 'yes') {
+	        		array_push($emailArray, $user->data->user_email); 
+	
+	        		$phoneNumber = get_the_author_meta('phone_number', $user->ID);
+	        		if($phoneNumber) {
+	        			$phoneNumber = preg_replace("/\D/", "", $phoneNumber) . '@vtext.com';
+	        			array_push($phoneArray, $phoneNumber); 
+	        		}
+	        	}
+	        }
+	        $recipients = implode(',', $emailArray);
+	        $textRecipients = implode(',', $phoneArray);
+	
+	        $email_headers = "From: $name <$email>";
+	        $email_headers .= "Reply-To: $email\r\n";
+	        $email_headers .= "MIME-Version: 1.0\r\n";
+	        $email_headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	        
+	        $text_headers = "Content-Type: text/plain";
+	
+	        $subject = "Sahlstroms HVAC Message Submitted";
+	        $email_content = "Name: $name\n";
+	        $email_content .= "Phone: $phonenumber\n";
+	        $email_content .= "Email: $email\n";
+	        $email_content .= "Address: $address\n";
+	        $email_content .= "City, State: $citystate\n";
+	        $email_content .= "\n";
+	        $email_content .= "Message:\n$message\n";
+	        
+	        $text_content = "$name\n";
+	        $text_content .= "$phonenumber\n";
+	        $text_content .= "$email\n";
+	        $text_content .= "$address";
+	
+	        if (mail($recipients, $subject, $email_content, $email_headers)) {
+	            http_response_code(200);
+	            echo "Thanks! Your message has been sent.";
+	        } else {
+	            http_response_code(500);
+	            echo "Oops! Something went wrong and we couldn't send your message.";
+	        }
+	
+	        mail($textRecipients, '', $text_content, $text_headers);
+	
+	       	if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) || !strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])){
+				wp_redirect(home_url() . '/contact?formSubmitted');
+			}
+	        die();   
 	}
 
 	public function register_menu() {
