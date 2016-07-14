@@ -73,15 +73,16 @@ var Sahlstroms = {
         var formMessages = $('.form-messages');
         $(form).submit(function(e) {
             e.preventDefault();
+            formMessages.html('Processing...');
+            formMessages.removeClass('processing success error').addClass('processing');
 
             $.ajax({
                 type: 'POST',
                 url: sahlstroms.ajax_url,
-                data: $(form).serialize() + '&action=email_action&is'
+                data: $(form).serialize() + '&action=email_action'
             })
             .done(function(response) {
-
-                $(formMessages).removeClass('error');
+                $(formMessages).removeClass('error success processing');
                 $(formMessages).addClass('success');
                 $(formMessages).text("Your message was successfully sent.");
 
@@ -93,7 +94,7 @@ var Sahlstroms = {
                 $('#address').val('');
             })
             .fail(function(data) {
-                $(formMessages).removeClass('success');
+                $(formMessages).removeClass('error success processing');
                 $(formMessages).addClass('error');
                 $(formMessages).text("Oops! An error occured and your message could not be sent.");
                 if (data.responseText !== '') {

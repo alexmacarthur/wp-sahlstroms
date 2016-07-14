@@ -746,6 +746,13 @@ input[type=submit] {
   box-shadow: 0 0 0 2pt $green;
 }
 
+.processing {
+  @extend .error;
+  color: white;
+  background: $gray;
+  box-shadow: 0 0 0 2pt $gray;
+}
+
 #mobile-menu-toggle {
   @include boxShadow;
   box-shadow: none;
