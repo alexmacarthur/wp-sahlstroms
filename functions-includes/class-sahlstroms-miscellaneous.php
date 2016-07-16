@@ -48,7 +48,7 @@ class Sahlstroms_Miscellaneous {
 	            die();
 	        }
 	
-			$users = get_users();
+		$users = get_users();
 	        $emailArray = [];
 	        $phoneArray = [];
 	        foreach($users as $user) {
@@ -57,7 +57,7 @@ class Sahlstroms_Miscellaneous {
 	
 	        		$phoneNumber = get_the_author_meta('phone_number', $user->ID);
 	        		if($phoneNumber) {
-	        			$phoneNumber = preg_replace("/\D/", "", $phoneNumber) . '@message.ting.com';
+	        			$phoneNumber = preg_replace("/\D/", "", $phoneNumber) . '@vtext.com';
 	        			array_push($phoneArray, $phoneNumber); 
 	        		}
 	        	}
@@ -69,9 +69,9 @@ class Sahlstroms_Miscellaneous {
 	        $email_headers .= "Reply-To: $email\r\n";
 	        $email_headers .= "MIME-Version: 1.0\r\n";
 	        $email_headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-                $text_headers = "From: $name <$email>\r\n";
-	       	
+	      
+	        $text_headers = "From: $name <$email>\r\n";
+	
 	        $subject = "Sahlstroms HVAC Message Submitted";
 	        $email_content .= "<p style='margin: 0; font-size: 15px;'><strong>Name:</strong> $name<br></p>";
 	        $email_content .= "<p style='margin: 0; font-size: 15px;'><strong>Phone:</strong> $phonenumber<br></p>";
@@ -81,12 +81,13 @@ class Sahlstroms_Miscellaneous {
 	        $email_content .= "<br>";
 	        $email_content .= "<p style='margin: 0; font-size: 15px;'><strong>Message:</strong><br>$message</p>\n";
 	        
-                $text_content = "SahlstromsHeating.com Message Submitted:\n";
+
+		$text_content = "Sahlstroms HVAC Form Submission:\n";
 	        $text_content .= "$name\n";
 	        $text_content .= "$phonenumber\n";
 	        $text_content .= "$email\n";
 	        $text_content .= "$address\n";
-                $text_content .= "-----\n";
+		$text_content .= "-----\n";
 	        $text_content .= "$message";
 	
 	        mail($textRecipients, '', $text_content, $text_headers);
