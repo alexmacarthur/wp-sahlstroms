@@ -1,3 +1,24 @@
+<!--
+    ___    __    _____ _  __
+   /   |  / /   / ____/ |/ /
+  / /| | / /   / __/  |   /
+ / ___ |/ /___/ /___ /   |
+/_/  |_/_____/_____//_/|_|
+    ___ __ ___   _____ ___    ____  _____ __  ____  __ ___
+   /  |/  /   | / ____/   |  / __ \/_  __/ / / / / / / __ \
+  / /|_/ / /| |/ /   / /| | / /_/ / / / / /_/ / / / / /_/ /
+ / /  / / ___ / /___/ ___ |/ __ _/ / / / __  / /_/ / __ _/
+/_/  /_/_/  |_\____/_/  |_/_/ |_| /_/ /_/ /_/\____/_/ |_|
+
+Alex MacArthur, a web developer in Nashville, custom-crafted this site with care.
+
+Need help with a project of your own? Get in touch!
+
+http://macarthur.me
+alex@macarthur.me
+
+-->
+
 <!DOCTYPE html>
 <html style="margin-top:0!important;">
 <head>
@@ -5,15 +26,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <meta name="description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
     <meta name="keywords" content="HVAC, plumbing, heating, air conditioning, Southwest Minnesota">
-    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/openGraph.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration">
-    <meta property="og:url" content="http://www.sahlstromsheating.com">
-    <meta property="og:description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration">
-    <meta name="twitter:description" content="Sahlstrom's Heating, Cooling, Plumbing, and Refrigeration located in Southwest Minnesota.">
-    <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/img/openGraph.jpg">
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<link href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,300' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
