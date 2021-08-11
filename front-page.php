@@ -78,59 +78,11 @@ get_header();
 
 		</section>
 
-		<div class="home-bar call-bar">
+		<div class="home-bar call-bar" style="margin-bottom: 3rem;">
 			<div class="container">
 				<h2>Give Us A Call<span>.</span> <br style="display:none;"><a href="tel:507-629-3734">507-629-3734</a></h2>
 			</div>
 		</div>
-
-		<section class="home-section">
-
-			<div class="container">
-
-				<div class="home-row contact-section">
-
-					<div class="five columns text-column">
-						<div class="text-container">
-							<h2><?php echo get_field('block_3_header', $theID); ?></h2>
-							<p><?php echo get_field('block_3_content', $theID); ?></p>
-							<div class="form-messages"></div>
-						</div>
-					</div>
-
-					<div class="seven columns form-column">
-
-						<?php get_template_part('partials/form', 'email'); ?>
-							
-						<div class="form-messages mobile-only"></div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</section>
-
-		<!--
-
-		<section class="brands-section">
-
-			<div class="container">
-
-				<h2 class="brands-header">Brands We Carry</h2>
-
-				<ul id="brandsSlider">
-					<li><img src="http://placehold.it/350x150"></li>
-				  	<li><img src="http://placehold.it/350x150"></li>
-				  	<li><img src="http://placehold.it/350x150"></li>
-				</ul>
-
-			</div>
-
-		</section>
-
-		-->
 	
 	</main>
 
