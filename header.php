@@ -14,7 +14,7 @@ Alex MacArthur, a web developer in Nashville, custom-crafted this site with care
 
 Need help with a project of your own? Get in touch!
 
-http://macarthur.me
+https://macarthur.me
 alex@macarthur.me
 
 -->
