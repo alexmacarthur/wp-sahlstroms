@@ -7,7 +7,7 @@
 						<li class="footer-svg-holder"><a href="https://www.facebook.com/Sahlstroms/" target="_blank"><?php get_template_part('img/inline','facebook.svg'); ?></a></li>
 						<li><a href="tel:507-629-3734">507-629-3734</a><br><a href="tel:507-829-6645">507-829-6645</a></li>
 					</ul>
-				<address>Copyright © <?php echo date("Y"); ?>, Sahlstrom’s Heating, Cooling &amp; Refrigeration, Inc., all rights reserved, Designed &amp; Created by <a class="creator-link" href="http://macarthur.me">Alex MacArthur</a></address>
+				<address>Copyright © <?php echo date("Y"); ?>, Sahlstrom’s Heating, Cooling &amp; Refrigeration, Inc., all rights reserved, Website Designed &amp; Created by <a class="creator-link" href="https://macarthur.me">Alex MacArthur</a></address>
 			</div>
 		</footer>
 
